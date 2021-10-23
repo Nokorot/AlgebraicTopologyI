@@ -1,0 +1,123 @@
+
+
+
+\newcommand{\diagSquare}[8]{
+\begin{tikzpicture}[node distance=2cm, auto]
+\node (a)              { $ #5 $ };
+\node (b) [right of=a] { $ #6 $ };
+\node (c) [below of=a] { $ #7 $ };
+\node (d) [right of=c] { $ #8 $ };
+\draw[-to] (a) to node { $ #1 $ } (b);
+\draw[-to] (a) to node { $ #2 $ } (c);
+\draw[-to] (b) to node { $ #3 $ } (d);
+\draw[-to] (c) to node { $ #4 $ } (d);
+\end{tikzpicture}
+}
+
+
+\newcommand{\congto}{\xrightarrow{\cong}}
+\newcommand{\incto}[1][]{ \xhookrightarrow{#1} }
+\newcommand{\xto}[1]{\xrightarrow{#1}}
+
+
+% Projective spaces
+\def\RP{\mathbb{RP}}
+\def\CP{\mathbb{CP}}
+\def\HP{\mathbb{HP}}
+
+
+% Commen Cathegories
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Group}{Group}
+
+
+% Homological Algebra
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ext}{Ext}
+
+
+% Common Lie Groups 
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\U}{U}
+\DeclareMathOperator{\Sp}{Sp}
+
+% Maths Operators
+\DeclareMathOperator{\id}{id}
+
+
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\im}{Im}
+
+
+% Standard setts.
+\def \N {\mathbb{N}}
+\def \Z {\mathbb{Z}}
+\def \Q {\mathbb{Q}}
+\def \R {\mathbb{R}}
+\def \C {\mathbb{C}}
+\def \H {\mathbb{H}}
+
+\def \E {\mathbb{E}}
+\def \Z {\mathbb{Z}}
+\def \I {\mathbb{I}}
+\def \J {\mathbb{J}}
+
+% Vector calculus.
+\newcommand{\dif}[3][]{
+	\ensuremath{\frac{d^{#1} {#2}}{d {#3}^{#1}}}}
+\newcommand{\pdif}[3][]{
+	\ensuremath{\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}}}
+
+% Vectors and matricies.
+\newcommand{\mat}[1]{\begin{matrix} #1 \end{matrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+% Add space around the argument.
+\newcommand{\qq}[1]{\quad#1\quad}
+\newcommand{\q}[1]{\:\:#1\:\:}
+
+% Implications
+\newcommand{\la}{\ensuremath{\Longleftarrow}}
+\newcommand{\ra}{\ensuremath{\Longrightarrow}}
+\newcommand{\lra}{\ensuremath{\Longleftrightarrow}}
+
+\newcommand{\pwf}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\tif}{\text{if}}
+
+% Shorthand
+\newcommand{\vphi}{\varphi}
+\newcommand{\veps}{\varepsilon}
+
+\newcommand{\<}[1]{\langle #1 \rangle}
+
+% Notation
+\newcommand{\wddef}[1]{\underline{#1}}
+\newcommand{\pref}[1]{(\ref{#1})}
+
+
+% Maths Operators
+\theoremstyle{plain}
+\theoremstyle{definition}
+\newtheorem{thrm}{Theorem}[section]
+\newtheorem{prop}[thrm]{Proposition}
+\newtheorem{corol}[thrm]{Corollary}
+\newtheorem{lemma}[thrm]{Lemma}
+
+\newtheorem{defn}[thrm]{Definition}
+\newtheorem{exmp}[thrm]{Example}
+\newtheorem{clame}[thrm]{Clame}
+
+
+\theoremstyle{remark}
+% \newtheorem{remark}[thrm]{\normalfont\large\textit Remark}
+\newtheorem{remark}[thrm]{Remark}
+\newtheorem{note}[thrm]{Note}

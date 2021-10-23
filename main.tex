@@ -1,0 +1,104 @@
+\documentclass[a4paper,11pt,english]{article}
+\usepackage{.styles/basic}
+\usepackage{.styles/envs}
+
+%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\textbf{Algebraic Geometry} - Exercise Sheet 1}
+\author{Tor Gjone \& Paul}
+
+%%%%%%% Definitions %%%%%%%%%%%%%%%%%%%%%
+\input{defs}
+
+\newSimpleHeaderEnvironment{exercise}{Exercise }
+\newSimpleHeaderEnvironment{solution}{Solution }
+
+% \newColoredBoxEnvironment{exercise}{Exercise }{green!20}
+% \newColoredBoxEnvironment{solution}{Solution }{blue!20}
+
+\def\A{\mathbb{A}}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\tr}{tr}
+
+%%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\mmaketitle
+
+\begin{exercise}[1]
+Let $X$ be a finite CW-complex and $Y$ a space such that for every base point
+$y \in Y$ and every number $i$ that is less than or equal to the dimension of
+$X$ the set $\pi_i(Y, y)$ is finite. Show that the set $[X, Y]$ of homotopy
+classes of maps from $X$ to $Y$ is finite.
+\end{exercise} 
+
+\begin{solution}[1] %\vspace{-.8cm}
+We will be doing the proof in a number of steps.
+\begin{itemize}
+\item Suppose for now that we have already proved the statement for $Y$
+path-connected. Let $X^i \subet X$,  denote the path-connected components of $X$ and
+similarly $Y^j \subset Y$ the path-connected components of $Y$. Then, by
+assumption, $[X^i,Y^j]$, the set of homotopy classes of maps from $X^i$ to
+$Y^j$, is finite.
+
+Consider a map $f: X \to Y$, then for each $X^i\subset X$, $f|_{X^i}$ most be
+contained in one of the path-connected components of $Y$, say $Y^j$. So
+$f|_{X^i}$ defines an element in $[f|_{X^i}^{Y^j}] \in [X^i, Y^j]$. 
+
+Define the following map
+\[ \Phi : [X, Y] \to \prod_{i, j} \left( [X^i, Y^j] \sqcup \{ \omega \} \right);
+\quad  
+f \mapsto \prod{i,j} [f|_{X^i}^{Y^j}], \]
+where $[f|_{X^i}^{Y^j}] = \omega$, whenever $f(X^i) \cap Y^j = \emptyset$. We
+want to show that this map is well-defined and injective, because if it is $[X,
+Y]$ most be fine, since the co-domain is a finite product of finite elements and
+thus finite.
+
+Suppose $f, g: X \to Y$ are homotopy equivalent by some homotopy $H$, then
+$H|_{X^i}$ defines a homotopy from $f|_{X^i}$ to $g|_{X^i}$. So $\Phi$ is
+well-defined. 
+
+Now suppose $f,g: X \to Y$ such that $\Phi([f]) = \Phi([g])$. Then $f|_X^i$ is
+homotopy equivalent to $g|_{X^i}$ by some homotopy $H_i$ for all of the
+path-connected components of $X$. Clearly we may defined $H: I\times X \to Y$
+by $H|_{X_i} = H_i$, which defines a homotopy between $f$ and $g$.
+
+\item
+So we may now, in the more interesting part of the proof, suppose wlog. that
+$Y$ is path-connected. The idea of the proof is to consider another set of
+homotopy classes, that projects surjective onto $[X,Y]$, and show that this set
+is finite, which would imply that $[X,Y]$ is also finite.
+
+\newcommand{\pX}{\parital X}
+
+Fix an element $y_0 \in Y$ and let $\pX \subset X$ denote the set of boundaries
+in $X$, ie. $x \in \pX$ if and only if $x \in \partial D^i$ for some $i$-cell in
+$X$. 
+Let $(X,Y,y_0)$ denote the set of of maps $f: X \to Y$, such that $f(\pX) = \{
+y_0\}$ (or alternatively, such that for any $i$-cell $D^i$ in $X$, $f(\partial
+D^i) = \{ y_0 \}$. ) 
+Let $f, g \in (X,Y,y_0)$, then a homotopy between $f$ and $g$ is a homotopy $H:
+I \times X \to Y$ (ie. $H(0,-) = f$ and $H(1,-) = g$) such that $H(I, \pX) = \{
+y_0 \}$. Then we will let $[X,Y,y_0]$ be the set of homotopy classes in
+$(X,Y,y_0)$.
+
+We now claim that for any map $f: X \to Y$ there exists a map $\tilde{f} \in
+[f]$ such that $\tilde{f} \in (X, Y, y_0)$. We will come back to the proof of
+the claim further down, but for now will take it to be true. Clearly every map
+in $(X,Y,y_0)$ is in particular a map from $X \to Y$, so we may define a map $p
+: (X,Y,y_0) \to [X,Y]$. Also every homotopy that fixes $\pX$ is in particular a
+homotopy, so $p$ descends to define a map $p_* : [X,Y,y_0] \to [X,Y]$. Finally
+the claim implies that this map $p_*$ is in fact surjective.
+
+\item
+We will now prove that $[X,Y,y_0]$ is finite.
+
+
+
+
+
+
+\end{itemize}
+\end{solution} 
+
+
+
+\end{document}
