@@ -21,12 +21,11 @@
 %       Content
 % \end{solution}
 
-
 \usepackage{amsmath,amssymb,amsthm,bbm}
 \usepackage[framemethod=TikZ]{mdframed} % frame theorems
 
 \newcommand{\simpleHeaderBase}[1]{
-    { \noindent \hspace{-.5cm} \Large\textbf{#1} \vspace{.2cm} \newline }
+    { \noindent \Large\textbf{#1} \bigskip}
 }
 
 \newcommand{\newSimpleHeaderEnvironment}[2]{
@@ -36,7 +35,6 @@
         % \label{#1_##2}
     } { \vspace{.5cm} }
 }
-
 
 \newcommand{\coloredEnvBoxBase}[2]{
     \mdfsetup{
@@ -59,24 +57,3 @@
         % \label{#1_##2}
     } { \end{mdframed} \vspace{.5cm} }
 }
-
-
-
-
-% Defintion
-\newcounter{def}[section]\setcounter{def}{0}
-\renewcommand{\thedef}{\arabic{def}}
-\newenvironment{definition}[2][]{
-    \refstepcounter{def}
-    
-    \simpleHeaderBase{Defintion~\thedef\ifstrempty{#1}{}{:~#1}}
-    %\coloredEnvBoxBase{{\strut\scshape Defintion~\thedef\ifstrempty{#1}{}{:~#1}}}{red!30}
-    %\begin{mdframed}[]\relax
-    \label{#2}
-} { %\end{mdframed} 
-\vspace{.5cm} %\newline
-}
-
-
-
-

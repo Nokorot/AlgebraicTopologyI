@@ -3,7 +3,7 @@
 % Title page
 \usepackage{lipsum}
 \makeatletter \newcommand\mmaketitle{%
-\hskip -1.3em
+\noindent
 \begin{minipage}{\textwidth}
  {\huge \textit\@title \par } \vskip 1em
  {\large \@author } \hfill
@@ -24,25 +24,16 @@
 \usepackage{graphicx}
 \usepackage{tikz,pgfplots}
 \pgfplotsset{compat=1.5.1}
+\setlength{\marginparwidth}{2cm}
 \usepackage{todonotes}
 
 \usepackage{mathtools}
 
 % Defining page margins
-\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[a4paper, top=3cm, bottom=3cm, left=2.5cm, right=2.5cm]{geometry}
 
 % Urls and hyperlinks
 \usepackage{url,hyperref}
 \usepackage{stmaryrd}
 \hypersetup{ colorlinks = true, urlcolor   = magenta, %
              linkcolor  = magenta, citecolor  = magenta}
-
-% Defining page margins
-\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
-
-% Urls and hyperlinks
-\usepackage{url,hyperref}
-\usepackage{stmaryrd}
-\hypersetup{ colorlinks = true, urlcolor   = magenta, %
-             linkcolor  = magenta, citecolor  = magenta}
-
