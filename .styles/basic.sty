@@ -5,7 +5,7 @@
 \makeatletter \newcommand\mmaketitle{%
 \noindent
 \begin{minipage}{\textwidth}
- {\huge \textit\@title \par } \vskip 1em
+ {\huge \@title \par } \vskip 1em
  {\large \@author } \hfill
  {\large \@date}
  \noindent\rule{\textwidth}{0.4pt}
@@ -24,13 +24,14 @@
 \usepackage{graphicx}
 \usepackage{tikz,pgfplots}
 \pgfplotsset{compat=1.5.1}
-\setlength{\marginparwidth}{2cm}
-\usepackage{todonotes}
+\setlength{\marginparwidth}{2.5cm}
+\usepackage[colorinlistoftodos,textsize=footnotesize]{todonotes}
+\usepackage{marginnote}
 
 \usepackage{mathtools}
 
 % Defining page margins
-\usepackage[a4paper, top=3cm, bottom=3cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage[a4paper, top=4cm, bottom=4cm, left=3cm, right=3cm]{geometry}
 
 % Urls and hyperlinks
 \usepackage{url,hyperref}

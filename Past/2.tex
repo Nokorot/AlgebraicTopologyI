@@ -1,0 +1,184 @@
+\documentclass[a4paper,11pt,english]{article}
+\usepackage{.styles/basic}
+\usepackage{.styles/envs}
+
+%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\textbf{Algebraic Topology} - Exercise Sheet 2}
+\author{Tor Gjone (2503108) \& Michele Lorenzi (3461634)}
+
+%%%%%%% Definitions %%%%%%%%%%%%%%%%%%%%%
+\input{defs}
+
+\newSimpleHeaderEnvironment{exercise}{Exercise }
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{3pt}
+%%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\mmaketitle
+
+\begin{exercise}[1]
+
+\begin{enumerate}
+\item[(a)]
+The universal cover $\til X$ of $X=S^1\vee S^2$ is the 
+real line with a copy of $S^2$ attached at to each integer, as illustrated in the exercise sheet and in the figure below.
+\begin{center}
+    \includegraphics[scale=0.6]{img-000.jpg}
+\end{center}
+
+To show that this is in fact the universal cover, consider the $x$-axis in $\R^3$ with spheres (of radius $1$ say) attached every $2k\pi$ for $k\in\Z$. It is clear that this construction is simply connected, since both the sphere and the line are. The projection map is then the one that sends the points of the $x$-axis to $e^{2\pi ix}$ in $S^1$ and the point on the spheres to the corresponding points in $S^2$. 
+
+The deck transformations will then be exactly the deck transformations of the real line as a covering of the circle, that is, the translations by $2k\pi$ along the $x$-axis, so that in particular $\pi_1(X,x_0)=\Z$ (which is also possible to show by using Van Kampen theorem).
+
+\item[(b)] We first observe that the universal cover is homotopy equivalent to a countable wedge of spheres $\bigvee_{i\in\Z}S^2$, by contracting the line to a point. Hence we have that its second homology group is equal to the direct sum $\bigoplus_{i\in\Z}\Z$. Since the universal cover is simply-connected, we can apply Hurewicz theorem, so the second homotopy group of $\til X$ is equal to $\bigoplus_{i\in\Z}\Z$. Hence $\pi_2(X,x_0)=\bigoplus_{i\in\Z}\Z$, since the $n$-th homotopy group of any space equals that of its covering spaces for all $n \ge 2$.
+
+\item[(c)] 
+Consider the construction of $\til X$, as a subset of $\R^3$, from (a), with $x_0 = 0$ as a base point.
+
+Let $\hat p: S^2 \to I \vee S^2$ be a map that projects the left hemi-sphere onto the central axis (see the illustration below.) This map can be though of as a pinch map followed by a map that projects the first summand of $S^2 \vee S^2$ onto the central axis.
+
+\begin{center}
+\begin{tikzpicture}
+\node[above left] at (0,0) {$1$};
+\fill (0,0) circle (2pt);
+\node[above] at (-2,0) {$0$};
+\fill (-2,0) circle (2pt);
+\draw (-2,0) -- (0, 0);
+\draw (-2,0) -- (0, 0);
+\draw (1,0) circle (1);
+\draw (1,0) ellipse (1 and 0.25);
+\end{tikzpicture}
+\end{center}
+
+
+We want to consider $\hat p$ as a based map sending the base point in $S^2$ to the beginning of the interval, that is the point that is not attached to the sphere and we will denote by $0$ (like in the figure).
+
+For $k\in \Z$, let $\iota_k : I \vee S^2$ be the maps defined by $x \mapsto (2\pi k x)$ for $x \in I =[0,1]$ and on the sphere by inclusion into the sphere attached to the point $2\pi k$ on the $x$-axis.
+
+Then by composing $\iota_k$ with the projection $\pi : \til X \to X$, we have a family of continuous maps that generate $\pi_2(X, x_0)$.
+
+It remains to determine the action of $\pi_1(X,x_0)$ on $\pi_2(X,x_0)$. 
+The action is defined precisely in terms of the map $\hat p$. 
+Let $[\omega] \in \pi_1(X,x_0)$ and $[\xi] \in \pi_2(X,x_0)$, then the action
+of $\omega$ on $\xi$, is the map 
+\[ \omega \star \xi := (\omega \vee \xi) \circ \hat p. \] 
+That is, the map $\hat p$ followed by acting with $\omega$ on the interval and $\xi$ on the sphere such that $1 \in I$ is mapped to $x_0$.
+
+In particular, the action of $\omega$ on $\hat \iota_k = \pi \circ \iota_k$ is the map 
+\[ \omega \star \hat \iota_k = (\omega \vee (\hat\iota_k)) \circ \hat p. \]
+Since $\omega$ is a loop at $x_0$. There is a unique lift $\til\omega$ of $\omega$ to the universal cover such that $\omega(0) = 0 \in \til X \subset \R^3$. Then we have
+\[ \omega \star \hat \iota_k = \pi \circ (\til \omega \vee \iota_k) \circ \hat p. \]
+Let $l = \til\omega(1) / 2\pi \in \Z$, then clearly $\til \omega \vee \iota_k = \iota_{k+l}$. So 
+\[ \omega \star \hat \iota_k = \hat \iota_{k+l}. \]
+
+\end{enumerate}
+\end{exercise}
+
+\newpage
+
+\begin{exercise}[2]
+
+We first prove a couple of preliminary lemmas.
+
+\ 
+
+\textbf{Claim 1.} The suspension $\Sigma X$ of a path connected space $X$ is simply connected.
+
+\begin{proof}
+
+The claim follows from an application of Seifert-Van Kampen theorem: just consider the two contractible open subsets of $\Sigma X$ which are the complement of the points to which $X\times\cb{0}$ and $X\times\cb{1}$ are identified (note that their intersection is path connected, since $X$ is path connected, so that the hypothesis of the Seifert-Van Kampen theorem are met).
+
+%Let $[\phi] \in \pi_1(\Sigma X, x_0)$ and $U = \phi^{-1}(X \times (0,1)) \subset I$. Then we have $U = \sqcup_{i \in J} (a_i, b_i)$, where $a_i < b_i$.
+
+%In fact $I$ is finite. For each $i \in I$ choose $c_i \in (a_i, b_i)$ and let $V = I \setminus \{ c_i  \}_i$, then $ V \cup \{ U_i \}_i$ is a cover of $I$ so there must be a finite sub cover. However $c_i$ is only contained in $U_i$ so, $I$ must be finite.
+
+%Fix $x_0 \in X$, let $i \in I$ and $\hat\phi_i : (0,1) \to X\times (0,1)$, be defined by $\hat\phi_i(x) = \phi|_{U_i}\left(\frac{x+a_i}{b_i-a_i}\right)$. Then define $\til\phi_i = p_1 \circ \hat\phi_i$, where $p_1$ is the projection of $X \times (0, 1)$ onto $X$.
+%Since $X$ is path connected, there exists a path $\xi: I \to X$, such that $\xi(0) = \til\phi_i(1/2)$ and $\xi(1) = x_0$. Let $K : I \times (0,1) \to (0,1)$ be a contraction of $(0,1)$ onto the point $\{1/2\}$. Then,
+%for each $x \in (0,1)$, we define $\phi^x_i = (\xi \star \hat\phi_i)(K(-,x))$, where $\star$ denotes concatenation of paths. In words that is, $\phi^x_i$ is the path following the $X$-component of $\hat\phi_i$ to the middle of the suspension and then following $\xi$ to $x_0$.
+
+%We define $H_i: I\times(0,1) \to X\times (0,1)$ by 
+%\[ H_i(t,x) := ( \phi^x_i(t), x ) = ( (\xi \star \hat\phi_i) \circ K)(t,x), x). \]
+%The last expression is clearly continues, so $H_i$ is continues. 
+
+%Finally we define $H: I\times(0,1) \to \Sigma X$, by 
+%\[ H(t,x) = \pwf{ H_i\left(t, \frac{x+a_i}{b_i-a_i}\right)  &\tif x \in U_i \text{ for some } i \in I \\ 
+ %                 \phi(x) &\text{otherwise}  } \]
+%This map is continues since $H_i$ fixes the second argument and thus points close to $\phi(x) \in X \times \{0,1\}$, stay close to $\phi(x)$. So $H$ defines a homotopy from $\phi$ to a path contained in $\{x_0\}\times I \subset \Sigma X$, which is clearly contractible and thus $\phi$ contracts to a trivial path.
+\end{proof}
+
+\textbf{Claim 2.} For any homology theory there is a natural isomorphism
+\[\til H_i(X)\to\til H_{i+1}(\Sigma X)\]
+
+\begin{proof}
+This follows from the reduced Mayer–Vietoris sequence
+\[ \dots \to \til H_{n+1}(U) \oplus \til H_{n+1}(V) \xto{i_* - j_*} \til H_{n+1}(X) \xto{\de_*} \til H_n(U \cap V) \to \til H_n(U) \oplus \til H_n(V)  \to \dots \]
+where $U,V \subset X$ are non-empty and cover $X$, $i: U \into X$, $j: V \into X$.
+
+Let $X = \Sigma X$ and 
+\[\Sigma X \supset U = \left(X \times [0, 3/4) \right)/\!\!\sim\
+\qq{\text{and}}
+\Sigma X \supset V= (X \times (1/4,0] )/\!\!\sim.\]
+\vspace{-.5cm}
+\begin{figure}[h!] 
+\centering
+\begin{tikzpicture}[scale=.35]
+\node[above] at (1,3) {$U$};
+\draw [decorate,
+    decoration = {brace}] (-2.5,2.5) --  (5,2.5) ;
+\node[below] at (-1.75,-3) {$V$};
+\draw [decorate,
+    decoration = {brace, mirror}] (-5,-2.5) --  (2.5,-2.5);
+\draw (-5,0) -- (0,-2);
+\draw (-5,0) -- (0,2);
+\draw (0,-2) -- (5,0);
+\draw (0,2) --  (5,0);
+\draw (0,0) ellipse (.5 and 2);
+\draw (-2.5,0) ellipse (.25 and 1);
+\draw (2.5,0) ellipse (.25 and 1);
+\end{tikzpicture}
+\end{figure}
+%\end{center}
+
+Then $\til H_{n+1}(U) \oplus \til H_{n+1}(V) = 0$, since both $U$ and $V$ are contractible. And 
+$\til H_n(U \cap V) \cong \til H_n(X)$, since $U \cap V = X \times (1/4,3/4)$ is homotopy equivalent to $X$. So the the reduced Mayer–Vietoris sequence looks like 
+\[ \dots \to 0 \to \til H_{n+1}(\Sigma X) \to \til H_n(X) \to 0 \to \dots \]
+\end{proof}
+
+If $X$ is an acyclic CW complex, then it is path-connected (because $\til H_0(X;\Z)=0$), hence the first claim tells us that its suspension $\Sigma X$ is simply-connected. Moreover, $\Sigma X$ has trivial reduced integral homology groups by the second claim. Since $\Sigma X$ is simply-connected, we can apply Hurewicz theorem, finding that all its homotopy groups are trivial. By Whitehead theorem, since the inclusion of a zero cell induces isomorphisms on all the homotopy groups of $\Sigma X$, $\Sigma X$ deformation retracts to the zero cell.
+\end{exercise}
+
+\newpage
+
+\begin{exercise}[3](More an attempt (for (a)) than a solution, but I need some sleep)
+
+(a) We recall that the colimit of the homology groups $H_*(X_k;A)$ is just the quotient of the direct sum $\bigoplus_{k\geq0}H_*(X_k;A)$ by the subgroup generated by the elements $\iota_i(a_i)-\iota_{i+1}(f_i(a_i))$ (where $\iota_i$ is the canonical inclusion $H_*(X_k;A)\hto \bigoplus_k H_*(X_k;A)$).
+
+We want to calculate the homology of $\tel_n X_n$ in a way that will yield the object we just described. We define for $l\geq 1$:
+\begin{align*}
+U_l&=\cb{(x,t,2l-3)\in\tel_n X_n\mid t>1/3}\cup\cb{(x,t,2l-2)\in\tel_n X_n\mid t<2/3} \\
+V_l&=\cb{(x,t,2l-2)\in\tel_n X_n\mid t>1/3}\cup\cb{(x,t,2l-1)\in\tel_n X_n\mid t<2/3}
+\end{align*}
+where $l$ is the index of the disjoint union in the definition of $\tel_n X_n$ (and $U_1$ is defined differently as $\cb{(x,t,0)\in\tel_n X_n\mid t<2/3}$). Then the $U_l$ are disjoint open sets in $\tel_n X_n$ homotopy equivalent to $X_{2l-2}$, while the $V_l$ are disjoint open sets equivalent to $X_{2l-1}$. Let now $U$ be the union of the $U_l$, $V$ the union of the $V_l$, we have that $U\cap V$ is the disjoint union $\coprod_{l\geq1}U_l\cap V_l$ which is homotopy equivalent to the disjoint union $\coprod_{l\geq0}X_l$, which has homology groups $H_*(\coprod X_l)=\bigoplus_l H_*(X_l)$. Similarly, we have
+\begin{align*}
+    H_*(U;A)&=\cb{(a_0,0,a_2,0,\dots)\in\bigoplus_l H_*(X_l;A)\mid a_{2i}\in H_*(X_{2i};A)} \\
+    H_*(V;A)&=\cb{(0,a_1,0,a_3,\dots)\in\bigoplus_l H_*(X_l;A)\mid a_{2i+1}\in H_*(X_{2i+1};A)}
+\end{align*}
+
+We then consider the Mayer-Vietoris sequence associated to the pair $U,V$ of subspaces of $X$:
+\begin{center}
+    \begin{tikzcd}
+    \dots \arrow[r] & H_*(U\cap V;A) \arrow[r,"\Phi"] & H_*(U;A)\oplus H_*(V;A) \arrow[r] & H_*(\tel_n X_n;A) \arrow[r] & \dots
+    \end{tikzcd}
+\end{center}
+where the map $\Phi$ is the map defined as the sum of the map induced by the inclusions of $U\cap V$ respectively in $U$ and $V$, that is:
+\[\Phi(a_0,a_1,\dots)=(a_0,a_1+f_{0*}(a_0),a_2+f_{1*}(a_1),\dots)\]
+
+This map clearly has trivial kernel, hence it is injective, so that $H_*(\tel_n X_n;A)$ is isomorphic to its cokernel. Now, the image of $\Phi$ is generated by:
+\[\Phi(0,\dots,0,a_i,0,\dots)=(0,\dots,0,a_i,f_{i*}(a_i),0,\dots)\]
+so that by composing with the automorphism of  $(x_i)\mapsto((-1)^ix_i)$ we find an isomorphism between $H_*(\tel_n X_n;A)$ and $\colim_k H_*(X_k;A)$, hence that we have proved that the maps $(i_k)_*:H_*(X_k;A)\to H_*(\tel_n X_n;A)$ induce an isomorphism $\colim_k H_*(X_k;A)\to H_*(\tel_n X_n;A)$.
+
+\end{exercise}
+
+\end{document}
