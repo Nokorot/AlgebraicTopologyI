@@ -2,21 +2,26 @@
 % Michele's stuff
 % (I hope I don't break something...)
 % (Most of the command are thought for livetexing but some became habits)
-\usepackage{tikz-cd}
+% ( :D don't worry. I'm a huge fan of shortcuts myself )
+
+\makeatletter 
+% \ni was used in the definitions of other commands. This is a solution
+\newcommand{\@ni}{{n-1}}
+
 \newcommand{\pin}{\pi_n(X,x_0)}
 \newcommand{\pini}{\pi_n(X,x_0)}
 \newcommand{\pinr}{\pi_n(X,A,x_0)}
-\newcommand{\pinir}{\pi_\ni(X,A,x_0)}
+\newcommand{\pinir}{\pi_\@ni(X,A,x_0)}
 \newcommand{\hn}{H_n(X;\Z)}
-\newcommand{\hni}{H_\ni(X;\Z)}
+\newcommand{\hni}{H_\@ni(X;\Z)}
 \newcommand{\hnr}{H_n(X,A;\Z)}
-\newcommand{\hnir}{H_\ni(X,A;\Z)}
+\newcommand{\hnir}{H_\@ni(X,A;\Z)}
 \newcommand{\dn}{D^n}
-\newcommand{\dni}{D^\ni}
+\newcommand{\dni}{D^\@ni}
 \newcommand{\sn}{S^n}
-\newcommand{\sni}{S^\ni}
+\newcommand{\sni}{S^{n-1}}
 \newcommand{\sph}{(D^n,\de D^n)}
-\newcommand{\sphi}{(D^\ni,\de D^\ni)}
+\newcommand{\sphi}{(D^\@ni,\de D^\@ni)}
 \newcommand{\sm}{\smallsetminus}
 \newcommand{\til}{\tilde}
 \newcommand{\fa}{\;\;\forall}
@@ -33,16 +38,33 @@
 \newcommand{\de}{\partial}
 %\newcommand{\xto}[1]{\xrightarrow{#1}}
 \newcommand{\hto}{\hookrightarrow}
-%\renewcommand{\ni}{{n-1}} % overrides \ni
-\newcommand{\nii}{{n-1}}
+\newcommand{\nii}{\@ni}
 \newcommand{\cont}{\reflectbox{$\in$}}
 \newcommand{\mi}{{m-1}}
 \newcommand{\ki}{{k-1}}
 \DeclareMathOperator{\colim}{colim}
 \DeclareMathOperator{\tel}{tel}
 
-\newcommand{\into}{\hookrightarrow}
+
+
 % Tor's stuff
+
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\nb}{\nabla}
+\renewcommand{\hat}{\widehat}
+
+\usepackage{scalerel,stackengine}
+\stackMath
+\renewcommand\widehat[1]{%
+\savestack{\tmpbox}{\stretchto{%
+  \scaleto{%
+    \scalerel*[\widthof{\ensuremath{#1}}]{\kern.1pt\mathchar"0362\kern.1pt}%
+    {\rule{0ex}{\textheight}}%WIDTH-LIMITED CIRCUMFLEX
+  }{\textheight}% 
+}{2.4ex}}%
+\stackon[-6.9pt]{#1}{\tmpbox}%
+}
+
 
 \newcommand{\diagSquare}[8]{
 \begin{tikzpicture}[node distance=2cm, auto]
@@ -61,35 +83,42 @@
 \newcommand{\incto}[1][]{ \xhookrightarrow{#1} }
 \newcommand{\xto}[1]{\xrightarrow{#1}}
 
+% Text key words
+\newcommand{\tif}{\text{if }}
+\newcommand{\tand}{\text{and }}
+\newcommand{\tsince}{\text{since }}
+
+
 % Projective spaces
 \def\RP{\mathbb{RP}}
 \def\CP{\mathbb{CP}}
 \def\HP{\mathbb{HP}}
 
 % Common Categories
-\DeclareMathOperator{\Top}{Top}
-\DeclareMathOperator{\Ab}{Ab}
-\DeclareMathOperator{\Cat}{Cat}
-\DeclareMathOperator{\CAT}{CAT}
-\DeclareMathOperator{\Mod}{Mod}
-\DeclareMathOperator{\Ring}{Ring}
-\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Top}   {\bf Top}
+\DeclareMathOperator{\Ab}    {\bf Ab}
+\DeclareMathOperator{\Cat}   {\bf Cat}
+\DeclareMathOperator{\CAT}   {\bf CAT}
+\DeclareMathOperator{\Mod}   {\bf Mod}
+\DeclareMathOperator{\Ring}  {\bf Ring}
+\DeclareMathOperator{\Group} {\bf Group}
+\DeclareMathOperator{\sSet}  {{\bf sSet}}
 
 % Homological Algebra
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\Tor}{Tor}
-\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}   {Hom}
+\DeclareMathOperator{\Tor}   {Tor}
+\DeclareMathOperator{\Ext}   {Ext}
 
 % Common Lie Groups 
-\DeclareMathOperator{\GL}{GL}
-\DeclareMathOperator{\SU}{SU}
-\DeclareMathOperator{\U}{U}
-\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\GL}    {GL}
+\DeclareMathOperator{\SU}    {SU}
+\DeclareMathOperator{\U}     {U}
+\DeclareMathOperator{\Sp}    {Sp}
 
 % Maths Operators
-\DeclareMathOperator{\id}{id}
-\DeclareMathOperator{\Ker}{Ker}
-\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\id}    {id}
+\DeclareMathOperator{\Ker}   {Ker}
+\DeclareMathOperator{\im}    {Im}
 
 % Standard sets
 \def \N {\mathbb{N}}
@@ -120,12 +149,11 @@
 \newcommand{\q}[1]{\:\:#1\:\:}
 
 % Implications
-\newcommand{\la}{\ensuremath{\Longleftarrow}}
-\newcommand{\ra}{\ensuremath{\Longrightarrow}}
+\newcommand{\la} {\ensuremath{\Longleftarrow}}
+\newcommand{\ra} {\ensuremath{\Longrightarrow}}
 \newcommand{\lra}{\ensuremath{\Longleftrightarrow}}
 
 \newcommand{\pwf}[1]{\begin{cases} #1 \end{cases}}
-\newcommand{\tif}{\text{if}}
 
 % Shorthand
 \newcommand{\vphi}{\varphi}
