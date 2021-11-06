@@ -4,9 +4,11 @@
 % (Most of the command are thought for livetexing but some became habits)
 % ( :D don't worry. I'm a huge fan of shortcuts myself )
 
-\makeatletter 
-% \ni was used in the definitions of other commands. This is a solution
-\newcommand{\@ni}{{n-1}}
+%\makeatletter 
+% \ni was used in the definitions of other commands. This is a solution.
+%\newcommand{\@ni}{{n-1}}
+% yeah, I know my \ni it's not optimal when working with others because it overrides LaTeX's \ni, that was the reason for adding \nii but I screwed up the definition, lol.
+% it's not really needed anyway, it just fits well my shorthands when livetexing (I've redefined \ni to be \cont and a whole bunch of other stuff that I've not added here, lol), but if I'm not in a hurry it's pretty useless.
 
 \newcommand{\pin}{\pi_n(X,x_0)}
 \newcommand{\pini}{\pi_n(X,x_0)}
@@ -38,7 +40,7 @@
 \newcommand{\de}{\partial}
 %\newcommand{\xto}[1]{\xrightarrow{#1}}
 \newcommand{\hto}{\hookrightarrow}
-\newcommand{\nii}{\@ni}
+\newcommand{\nii}{{n-1}}
 \newcommand{\cont}{\reflectbox{$\in$}}
 \newcommand{\mi}{{m-1}}
 \newcommand{\ki}{{k-1}}
@@ -51,6 +53,7 @@
 
 \newcommand{\into}{\hookrightarrow}
 \newcommand{\nb}{\nabla}
+\let\smallhat\hat
 \renewcommand{\hat}{\widehat}
 
 \usepackage{scalerel,stackengine}

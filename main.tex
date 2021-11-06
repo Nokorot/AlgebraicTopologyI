@@ -22,7 +22,9 @@
 
 
 \begin{exercise}[1]
+
 \begin{enumerate}
+
 \item[(a)]
 We have 
 \[ |X| := (\bigsqcup_{n\ge 0} X_n \times \nb^n ) / \sim,  \]
@@ -34,10 +36,10 @@ So what we need to show is that the map defined on the union factors through the
 quotient. We have
 
 \begin{align*}
-f_n(\alpha^*(x))(t) &= \alpha^*(f_m) (t), 
+f_n(\alpha^*(x))(t) &= \alpha^*(f_m(x)) (t)
 && \tsince f \text{ is a morphism
 in } \sSet, \\
-&= f_m(x)(\alpha_*)(t)), 
+&= f_m(x)(\alpha_*(t)) 
 &&\text{by definition of } \alpha^*.
 \end{align*}
 So $\hat{f}: |X| \to T$ defined by $(x,t) \mapsto f_n(x)(t)$, is well-defined.
@@ -51,24 +53,23 @@ Let $g: |X| \to T$ and $\til g = g \circ q: \bigsqcup_{n\ge 0} X_n\times \nb^n \
 T$, where $q$ is the quotient map defined by the equivalence relation
 $\sim$ above. Define $\bar g: X \to \S T$, by 
 \[ \bar g_n (x)(t) := \til g(x,t),  \]
-for all $x \in X_n$ and $t\in T$. We need to show that this construction satisfy
-the naturally conditions of a morphism in $\sSet$. 
+for all $x \in X_n$ and $t\in T$. We need to show that this construction is actually a morphism in $\sSet$. 
 
 Let $\alpha: [n]\to[m]$, then for $x\in X_m$ and $t \in \nb^n$
 \begin{align*}
 (\bar g_n \circ \alpha^*)(x)(t) &= \til g(\alpha^*(x), t) \\
-&= \til g (x, \alpha_*(t)), && \tsince \til g \text{ passes through } |X| \\
+&= \til g (x, \alpha_*(t)) && \tsince \til g \text{ factors through } g, \\
 &= \bar g_m (x)(\alpha_*(t)) \\
-&= (\alpha \circ \bar g_m)(x)(t)
+&= (\alpha^* \circ \bar g_m)(x)(t)
 \end{align*}
 Clearly the maps $\Phi$ and $(g \mapsto \bar g)$ are mutual inverses and thus
-$\Phi$ most be a bijection.
+$\Phi$ must be a bijection.
 
 \item[(c)]
-We'll start by showing naturally in the first variable. 
+We start by showing naturality in the first variable. 
 Let $X,Y \in \sSet$ and $\phi : X \to Y$ be a morphism in $\sSet$. Then we want
-to show that the following diagram ( in which, we're suppressing the subscripts on
-$\Hom$ ) commutes
+to show that the following diagram (in which, we're suppressing the subscripts on
+$\Hom$) commutes:
 
 \begin{center}
 \begin{tikzcd}[row sep=15pt]
@@ -76,36 +77,36 @@ f\circ \phi &
 \Hom(X, \S T) \arrow[r, "\Phi"] & \Hom(|X|, T) \\
 f \arrow[u, mapsto] & 
 \Hom(Y,\S T) \arrow[r,"\Phi"] \arrow[u, "{\Hom(\phi,\S T)}"] 
-& \Hom(|Y|,T) \arrow[u, swap, "{\Hom(|\phi|, \S T)}"] \\ 
+& \Hom(|Y|,T) \arrow[u, swap, "{\Hom(|\phi|, T)}"] \\ 
 % & f \arrow[r, mapsto] & \hat f
 \end{tikzcd} 
 \end{center}
 
-Or equivalently: for all $f \in \Hom_{\sSet}(Y \to \S T)$, 
-\[ \hat{f \circ \phi} = \hat f \circ |\phi| : |X| \to T, \]
+Or equivalently: for all $f \in \Hom_{\sSet}(Y \to \S T)$,
+\[ \hat{f \circ \phi} = \hat f \circ |\phi| : |X| \to T \]
 where $|\phi|: |X|\to|Y|$ is
 defined by $|\phi|(x,t) := (\phi_n(x), t)$, for $x \in X_n$, $t \in \nb^n$.
 
-Let $f: Y \to \S T$, $x \in X_n$ and $t \in \nb^n$, then 
+Let $f: Y \to \S T$, $x \in X_n$ and $t \in \nb^n$, then
 \begin{align*}
-\hat{f \circ \phi} (x,t) &= (f \circ \phi)_n(x)(t), 
-&& \text{ by def. of } \: \hat{\cdot} \\
-&= (f_n \circ \phi_n)(x)(t) \\
-&= (f_n(\phi_n(x)))(t) \\
+\hat{f \circ \phi} (x,t) &= (f \circ \phi)_n(x)(t)
+&& \text{ by definition of }\hat{f \circ \phi}, \\
+&= (f_n \circ \phi_n)(x)(t)\\
+&= f_n(\phi_n(x))(t) \\
 &= \hat f(\phi_n(x), t), 
-&& \text{ by def. of } \hat{f} \\
+&& \text{ by definition of } \hat{f}, \\
 &= (\hat f \circ |\phi|)(x, t) 
-&& \text{ by def. of } |\phi|. 
+&& \text{ by definition of } |\phi|. 
 \end{align*}
 
-Naturally in the second argument is similar. Let $\psi: T \to S$ be a cnt.
-map. Then we want to show that the following diagram commutes
+Naturality in the second argument is similar. Let $\psi: T \to S$ be a continuous
+map. Then we want to show that the following diagram commutes:
 
 \begin{center}
 \begin{tikzcd}[row sep=15pt]
 f \arrow[d, mapsto]  &
 \Hom(X, \S T) \arrow[r, "\Phi"] \arrow[d, swap, "{\Hom(X, \S\psi)}"] 
-& \Hom(|X|, T) \arrow[d, "{\Hom(|X|, \S\psi)}"] \\
+& \Hom(|X|, T) \arrow[d, "{\Hom(|X|,\psi)}"] \\
 \S\psi \circ f & 
 \Hom(X,\S S) \arrow[r,"\Phi"]  
 & \Hom(|X|,S)  \\
@@ -116,21 +117,21 @@ f \arrow[d, mapsto]  &
 Or equivalently: for all $f\in \Hom_{\sSet}(Y, \S T)$, 
 \[ \hat{{\S\psi \circ f }} = \psi \circ \hat f : |X| \to S, \]
 where $\S\psi: \S X \to \S Y$ is 
-defined by $(\S\psi)_n(\xi) := \psi \circ \xi$, for $\xi \in \S X_n$.
+defined by $\S\psi_n(\xi) := \psi \circ \xi$, for $\xi \in \S X_n$.
 
-Let $x \in X_n$, $t \in \nb^n$ and $f \in \Hom_{\sSet}(X, \S T)$
-
+Let $f: X \to \S T$, $x \in X_n$ and $t \in \nb^n$, then
 \begin{align*}
 \hat{\S\psi \circ f}(x,t) &= (\S\psi \circ f)_n(x)(t) \\
 &= (\S\psi_n \circ f_n)(x)(t) \\
 &= \S\psi_n(f_n(x))(t) \\
 &= (\psi \circ f_n(x))(t), 
-&& \text{by def. of } \S\psi \\
+&& \text{by definition of } \S\psi \\
 &= (\psi \circ \hat f)(x)(t), 
-&& \text{by def. of } \hat f.
+&& \text{by definition of } \hat f.
 \end{align*}
 
 \end{enumerate}
+
 \end{exercise}
 
 
@@ -140,6 +141,8 @@ Let $x \in X_n$, $t \in \nb^n$ and $f \in \Hom_{\sSet}(X, \S T)$
 
 
 \begin{exercise}[3]
+
+
 
 \end{exercise}
 
