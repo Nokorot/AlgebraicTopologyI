@@ -133,14 +133,118 @@ Let $x \in X_n$, $t \in \nb^n$ and $f \in \Hom_{\sSet}(X, \S T)$
 \end{enumerate}
 \end{exercise}
 
-
 \begin{exercise}[2]
+We'll write 
+\[ \Psi = (|p_1|, |p_2|) : |\Delta[n] \times \Delta[1]| \to |\Delta[n]|\times
+|\Delta[1]|. \]
+
+To show that $\Psi$ is a homeomorphism, we will construct an inverse $\Phi$.
+
+Every element on the left side can be represented by
+\begin{equation}
+\label{eq:1}
+\left((\alpha, \beta), t\right),
+\left((\alpha,t), (\beta, s)\right)
+\end{equation}
+where $\alpha : [k] \to [n]$, $\beta: [k] \to [1]$ and $t \in \nb^k$.
+On the other hand, an arbitrary element on the right side can be represented by
+\begin{equation}
+\label{eq:2}
+\left((\alpha,t), (\beta, s)\right),
+\end{equation}
+where $\alpha: [m] \to [n]$, $\beta: [l] \to [1]$, $t \in \nb^m$ and
+$s\in\nb^l$.
+
+Then, on representatives, the map $\Psi$ is defined by
+\[ ((\alpha,\beta), t) \mapsto ((\alpha,t), (\beta,t)). \]
+
+To construct $\Phi$, we will consider some representative as in \pref{eq:2}. 
+
+We claim that we may wlog. assume that $m \le n$ and $l \le 1$. Or equivalently 
+for all representatives as in \pref{2}, there exists $\alpha':
+[m'] \to [n]$, $\beta': [l'] \to [1]$, $t'\in \nb^{m'}$ and $s'\in
+\nb^{l'}$ such that $m' \le n$, $l' \le 1$ and 
+\[ (\alpha,t) \sim (\alpha',t') \q{\tand} (\beta,s) \sim (\beta',s'). \]
+
+\begin{proof}[proof of claim]
+\todo{proof}
+\end{proof}
+
+Note that $(t,s) \in \nb^m \times \nb^l$. By the claim $l = 0,1$. If $l = 0$, then $k=m$
+and $\nb^m \times \nb^0$ is already a $k$-simplex. So we will mostly consider
+the case where $l=1$. (In the following arguments $l=1$, but we will still write
+$l$ to keep track of it)
+The geometrical idea of the constructions of $\Phi$,
+consists of partitioning the polyhedra $\nb^m \times \nb^l$ into $k$-simplices 
+where $k = m + l$.
+
+Observe that the vertices of $\nb^m \times \nb^l$ can be parametrise by
+$[m] \times [l]$. Define an ordering of on $[m] \times [l]$ by 
+$(i,j) \ge (i',j')$ iff $i+j \ge i'+j$. 
+Let $S\subset [m]\times [l]$, such that $|S| = m+l+1 = k+1$, then the convex hull
+of $S$ defines a $k$-simplex $\nb_S \subseteq \nb^m \times \nb^l$. 
+In particular, if $\xi: [k] \to [m]\times[l]$ is a strictly increasing map 
+(wrt. the order defined above) then the convex hull of $\xi([k])$ defines a 
+$k$-simplex $\nb_\xi \subseteq \nb^m \times \nb^l$.
+
+We claim that $ \Xi_{m,l} = \{ \nb_\xi \q| \xi : [k] \to [m]\times[l] \}$ defines a
+partitioning of $\nb^m \times \nb^l$ into $k$-simplices. That is 
+\[ \bigsqcup_{\nb_\xi \in \Xi_{m,l}} \nb_\xi  = \nb^m \times \nb^l, \] 
+and if $\xi, \xi' \in \Xi_{m,l}$ are distinct then 
+\begin{equation}
+\label{eq:3}
+\oc{\nb}_\xi \cap \oc{\nb}_{\xi'} = \emptyset. 
+\end{equation}
+
+\begin{proof}[proof of claim]
+\todo{proof}
+\end{proof}
+
+\begin{comment}
+Now that we have a partition, consider a point $(t,s) \in
+\nb^m\times\nb^l$. We claim that we may with out loss of generality 
+assume that $(t,s)$ is contained in the interior of $\nb^m\times\nb^l$. That is 
+if there $(t,s) \in \pd\left(\nb^m\times\nb^l\right)$ then $(\alpha, t) \sim
+(\alpha', t')$ and $(\beta,s) \sim (\beta',s')$ such that 
+$(t,s) \in \left(\nb^m\times\nb^l\right)^{\circ}$.
+
+\begin{proof}[proof of claim]
+\todo{proof}
+\end{proof}
+\end{comment}
+
+Since $\Xi_{m,l}$ partitions $\nb^m\times\nb^l$, there exists $\xi \in
+\nb^m\times\nb^l$ such that $(t,s) \in \nb_\xi$ and if $(t,s) \in \oc{\nb}_\xi$,
+then $\xi$ is unique.
+
+Define $\hat{\alpha}_\xi = \alpha \circ \pr_1 \circ \xi : [k] \to [n]$,
+$\hat{\beta}_\xi = \beta \circ \pr_2 \circ \xi : [k] \to [1]$ and $\hat{t} =
+(t,s) \in \nb_\xi$.
+Then $((\hat{\alpha}_\xi,\hat{\beta}_\xi), \hat{t})$ defines a representeative
+in $|\nb[n]\times\nb[1]|$. 
+We define $\Phi$ by 
+\[ ((\alpha,s), (\bata,t)) \mapsto ((\hat{\alpha}_\xi,\hat{\beta}_\xi),
+\hat{t}). \]
+
+We still need to check that this definition is independent of the $\xi$, 
+well-defined and continues. And we need to check that $\Phi$ acutualy defines an
+inverse of $\Psi$.
+
+Suppose $\hat{t} = (t,s) \in \nb_\xi \cap \nb_{\xi'}$. Then, by \pref{eq:3},
+$\hat t$ most be contained in a face of both $\nb_\xi$ and $\nb_{\xi'}$. 
+
+
+
+
+
+
+
+
+
 
 \end{exercise}
 
-
 \begin{exercise}[3]
-
 \end{exercise}
 
 \end{document}
