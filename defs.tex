@@ -48,6 +48,7 @@
 
 
 % Tor's stuff
+\newcommand{\se}{\subseteq}
 \renewcommand{\ss}{\subset}
 \renewcommand{\i}{^{-1}}
 \newcommand{\oc}[1]{\overset{\circ}{#1}}
@@ -113,16 +114,24 @@
 \DeclareMathOperator{\Ext}   {Ext}
 
 % Common Lie Groups 
+\let \O \undefined
+
 \DeclareMathOperator{\GL}    {GL}
 \DeclareMathOperator{\SU}    {SU}
 \DeclareMathOperator{\U}     {U}
+\DeclareMathOperator{\O}     {O}
+\DeclareMathOperator{\SO}    {SO}
 \DeclareMathOperator{\Sp}    {Sp}
+\DeclareMathOperator{\Gr}    {Gr}
 
 % Maths Operators
 \DeclareMathOperator{\pr}    {pr}
 \DeclareMathOperator{\id}    {id}
 \DeclareMathOperator{\Ker}   {Ker}
 \DeclareMathOperator{\im}    {Im}
+
+\let \span \undefined
+\DeclareMathOperator{\span}  {span}
 
 % Standard sets
 \def \N {\mathbb{N}}
