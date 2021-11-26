@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+\node[above] (c) at (1,1.5) {$2$};
+\node[left]  (a) at (0,0) {$0$};
+\node[right] (b) at (2,0) {$1$};
+\draw[line width=1.5px] (0,0) 
+    -- (2,0)    node[sloped, scale=.9, pos=0.5, xscale=-1] {$>$} 
+                node[scale=1, pos=0.5, below] {$I_{0,1}$} 
+    -- (1,1.5)  node[sloped, scale=.9, pos=0.5] {$>$} 
+                node[scale=1, pos=0.5, above right] {$I_{1,2}$};
+
+\draw (0,0) -- (1,1.5);
+
+\end{tikzpicture}
