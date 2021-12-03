@@ -8,7 +8,7 @@
 \usepackage{subcaption}
 
 %%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\textbf{Algebraic Topology} - Exercise Sheet 6}
+\title{\textbf{Algebraic Topology} - Exercise Sheet 7}
 \author{Tor Gjone (2503108) \& Michele Lorenzi (3461634)}
 
 %%%%%%% Definitions %%%%%%%%%%%%%%%%%%%%%
@@ -27,75 +27,9 @@
 
 \mmaketitle
 
+
 \begin{exercise}[1]
-In the case $k = 0$, $p = \id^2: S^n \to S^n$ defines a fibre bundle, with fibre
-$S^0$, for all $n$. So $0 = k \ne n-1$ and $m \ne 2n -1$ in general. 
-So we suppose that also $k \ge 1$.
 
-% Suppose $k = 0$, then $m=n$ so $p$ is a self map on $S^n$. With out loss of
-% generality we may suppose $p$ fixes some base point $x_0$, so $p$ defines some
-% element in $\pi_n(S^n,x_0)$. 
-
-It is clear that $m = n+k$. Since $p: S^m \to S^n$ is a fibre bundel we have the
-following long exact sequence
-\[ \dots \to \pi_i(S^k,b) \to \pi_i(S^m,b) \to \pi_i(S^n,e) \to \pi_{i-1}(S^k, b) \to
-\dots \]
-where $e \in S^n$ and $b \in p\i(e)$. 
-Considering the sequence with $i \sim k$, we have
-\[ \dots \to \pi_{k+1}(S^n,e) \q\to \pi_{k}(S^k, b) = \Z \q\to \pi_k(S^m,b) = 0 \to \dots \]
-since $m = n+k \ge k+1$. So we may conclude that $\pi_{k+1}(S^n,e)\ne 0$, and
-thus $n \le k+1$.
-
-Considering the sequence with $i \sim n$, we have
-\[ \dots \to \pi_n(S^m,b) = 0 \q\to \pi_n(S^n,e) = \Z \q\to \pi_{n-1}(S^k,b)
-\q\to \pi_{n-1}(S^m,b) = 0 \to \dots \]
-since $m = n+k \ge n+1$. So $\pi_{n-1}(S^k,b) = \Z \ne 0$ and we may conclude
-that $n-1 \ge k$. Hence $k = n-1$ and thus $m = k+n = 2n-1$.
-
-
-
-
-\end{exercise}
-
-
-\begin{exercise}[3]
-Let $J = I_{0,1} \sqcup_1 I_{1,2} \subset \nb^2$, be the subset consisting of
-the faces $I_{0,1}$ and $I_{1,2}$ (see figure \pref{fig:1a}).
-
-Let $H: \nb^2 \times [0,1] \to \nb^2$ be the homotopy illustrated in figure
-\pref{fig:1b}, such that $H(-,0) = \id_{\nb^2}$, $\im(H(-,1)) = J$ and
-$H|_J(-,t) = \id_J$, for all $t$. Let $p = H(-,1)$ and $\psi, \phi \in \Omega
-X$. Considering $\phi$ as a map from $I_{0,1}$, (going from $1$ to $0$) and
-$\psi$ from $I_{1,2}$ (going from $2$ to $1$), $\phi \sqcup_1 \psi$ defines a
-map from $J$ to $X$, mapping all the three vertices to $x_0$. Define 
-\[ \Psi : \Omega X \times \Omega X \to E \; \quad (\phi, \psi) \mapsto
-(\phi\sqcup_1 \psi) \circ p. \]
-
-\begin{figure}[h]
-\centering
-\caption{}
-\begin{subfigure}[b]{0.45\textwidth}
-\centering
-\input{triangle_fig_2}
-\caption{The think line is $J$.}
-\label{fig:1a}
-\end{subfigure}
-\begin{subfigure}[b]{0.45\textwidth}
-\centering
-\input{triangle_fig_3}
-\caption{Deformation retract along the dotted lines.}
-\label{fig:1b}
-\end{subfigure}
-\end{figure}
-
-It is quite clear that $\Phi \circ \Psi = \id_{\Omega X \times \Omega X}$. We
-have $p \circ i = i$ and $p \circ j = j$, where we consider $i,j$ to be maps
-into $J$, so 
-\[  (\Phi \circ \Psi)(\phi, \psi) = ( (\phi \sqcup_1 \psi) \circ i, (\phi
-\sqcup_1 \psi) \circ j ) = (\phi, \psi). \]
-
-Conversely, $\til H : \id_E \cong \Phi \circ \Psi$, where $\til H$ is defined
-by pre composition with $H$.
 \end{exercise}
 
 \end{document}

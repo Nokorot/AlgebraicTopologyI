@@ -1,0 +1,122 @@
+\documentclass[a4paper,11pt,english]{article}
+\usepackage{.styles/basic}
+\usepackage{.styles/envs}
+
+\usepackage{circuitikz}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\textbf{Algebraic Topology} - Exercise Sheet 6}
+\author{Tor Gjone (2503108) \& Michele Lorenzi (3461634)}
+
+%%%%%%% Definitions %%%%%%%%%%%%%%%%%%%%%
+\input{defs}
+
+\newSimpleHeaderEnvironment{exercise}{Exercise }
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{3pt}
+
+\newcommand{\orth}{\bot}
+
+\renewcommand{\S}[1]{\mathcal{S}(#1)}
+%%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\mmaketitle
+
+
+\begin{exercise}[1]
+
+In the case $k = 0$, $p = \id^2: S^n \to S^n$ defines a fibre bundle, with fibre
+$S^0$, for all $n$. So $0 = k \ne n-1$ and $m \ne 2n -1$ in general. 
+So we suppose that also $k \ge 1$.
+
+% Suppose $k = 0$, then $m=n$ so $p$ is a self map on $S^n$. With out loss of
+% generality we may suppose $p$ fixes some base point $x_0$, so $p$ defines some
+% element in $\pi_n(S^n,x_0)$. 
+
+It is clear that $m = n+k$. Since $p: S^m \to S^n$ is a fibre bundle we have the
+following long exact sequence
+\[ \dots \to \pi_i(S^k,b) \to \pi_i(S^m,b) \to \pi_i(S^n,e) \to \pi_{i-1}(S^k, b) \to
+\dots \]
+where $e \in S^n$ and $b \in p\i(e)$. 
+Considering the sequence with $i \sim k$, we have
+\[ \dots \to \pi_{k+1}(S^n,e) \q\to \pi_{k}(S^k, b) = \Z \q\to \pi_k(S^m,b) = 0 \to \dots \]
+since $m = n+k \ge k+1$. So we may conclude that $\pi_{k+1}(S^n,e)\ne 0$, and
+thus $n \le k+1$.
+
+Considering the sequence with $i \sim n$, we have
+\[ \dots \to \pi_n(S^m,b) = 0 \q\to \pi_n(S^n,e) = \Z \q\to \pi_{n-1}(S^k,b)
+\q\to \pi_{n-1}(S^m,b) = 0 \to \dots \]
+since $m = n+k \ge n+1$. So $\pi_{n-1}(S^k,b) = \Z \ne 0$ and we may conclude
+that $n-1 \ge k$. Hence $k = n-1$ and thus $m = k+n = 2n-1$.
+
+\end{exercise}
+
+\begin{exercise}[2]
+
+(a) We need to consider a non locally compact space: we will use the subset of the real line $X=[0,1]\sm \{\frac{1}{n} \mid n \in \N\}$, which is not locally compact because the origin does not have a compact neighbourhood.
+
+Let $c \in [0,1]^X$ be the constant function $c(y) = 0$. We claim that the evaluation map $\ev$ is not continuous in $(c,0)$. We prove it by contradiction. If $\ev$ were continuous in $(c,0)$, then we could find $\varepsilon > 0$, compact $K_i \subset X$ and open $O_i \subset [0,1]$ such that $c \in W(K_i,O_i)$ and $\ev(\bigcap_{i=1}^m W(K_i,O_i) \times O_\varepsilon) \subset [0,1)$, where $O_\varepsilon = \cb{y \in X \mid y <\varepsilon}$. Note that we must have necessarily $0 \in O_i$ since $0 \in c(K_i)$. Then $K = \bigcup_{i=1}^m K_i$ is compact and $O = \bigcap_{i=1}^m O_i$ is an open neighborhood of $0$, thus $c \in W(K,O) \subset \bigcap_{i=1}^m W(K_i,O_i)$ and $\ev(W(K,O) \times O_\varepsilon) \subset [0,1)$.
+
+Let $n \in \N$ be such that $\frac{1}{n} < \varepsilon$. Since $(\frac{1}{n+1},\frac{1}{n})$ is closed in $X$, the set $C  = (\frac{1}{n+1},\frac{1}{n}) \cap K$ is compact, thus we can find $\xi \in (\frac{1}{n+1},\frac{1}{n}) \setminus C$. Let $g : (\frac{1}{n+1},\frac{1}{n}) \to [0,1]$ be a continuous map such that $g(\xi)= 1$ and $g(x) = 0$ for $x \in C$. Extend $g$ to a continuous map $f : X \to [0,1]$ via $f(x) = 0$ for $x \notin (\frac{1}{n+1},\frac{1}{n})$. Then $f(K) = \{0\} \subset O$, i.e. $f \in W(K,O)$. We have $\xi \in O_\varepsilon$, thus $(f,\xi)  \in W(K,O) \times O_\varepsilon$ and $\ev(f,\xi) = f(\xi) = 1$. This contradicts the assumption that $\ev(W(K,O) \times O_\varepsilon) \subset [0,1)$.
+
+(b) On the set-theoretic level, we already know that there is a bijection between functions $Y\to (X\to Z)$ and $X\times Y\to Z$. Given $g:Y\to (X\to Z)$ this is given by the composite:
+\[\Psi(g):X\times Y\cong Y\times X\xto{g\times\id}Z^X\times X\xto{\ev}Z,\]
+because:
+\[\Phi(\Psi(g))(y)(x)=\Psi(g)(x,y)=\ev(g(y),x)=g(y)(x)\text{ for all }x\in X,y\in Y.\]
+
+Now, if we consider the spaces of point (a), i.e. $X$ as before, $Z=[0,1]$ and $Y=[0,1]^X$, we see that the identity $\id:Z^X\to Z^X$ is a continuous map in $(Z^X)^Y$ that cannot be in the image of $\Phi$: if there was a function $X\times Y\to Z$ with image the identity under $\Phi$ this would need to be:
+\[\Psi(\id):X\times Z^X\cong Z^X\times X\xto{\ev}Z,\]
+which is not continuous by point (a).
+
+(c) We could not find a counterexample.
+
+\end{exercise}
+
+\begin{exercise}[3]
+
+Let $J = I_{0,1} \sqcup_1 I_{1,2} \subset \nb^2$, be the subset consisting of
+the faces $I_{0,1}$ and $I_{1,2}$ (see figure \pref{fig:1a}).
+
+Let $H: \nb^2 \times [0,1] \to \nb^2$ be the homotopy illustrated in figure
+\pref{fig:1b}, such that $H(-,0) = \id_{\nb^2}$, $\im(H(-,1)) = J$ and
+$H|_J(-,t) = \id_J$, for all $t$. Let $p = H(-,1)$ and $\psi, \phi \in \Omega
+X$. Considering $\phi$ as a map from $I_{0,1}$, (going from $1$ to $0$) and
+$\psi$ from $I_{1,2}$ (going from $2$ to $1$), $\phi \sqcup_1 \psi$ defines a
+map from $J$ to $X$, mapping all the three vertices to $x_0$. Define 
+\[ \Psi : \Omega X \times \Omega X \to E \; \quad (\phi, \psi) \mapsto
+(\phi\sqcup_1 \psi) \circ p. \]
+
+\begin{figure}[h]
+\centering
+\caption{}
+\begin{subfigure}[b]{0.45\textwidth}
+\centering
+\input{triangle_fig_2}
+\caption{The think line is $J$.}
+\label{fig:1a}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+\centering
+\input{triangle_fig_3}
+\caption{Deformation retract along the dotted lines.}
+\label{fig:1b}
+\end{subfigure}
+\end{figure}
+
+It is quite clear that $\Phi \circ \Psi = \id_{\Omega X \times \Omega X}$. We
+have $p \circ i = i$ and $p \circ j = j$, where we consider $i,j$ to be maps
+into $J$, so 
+\[  (\Phi \circ \Psi)(\phi, \psi) = ( (\phi \sqcup_1 \psi) \circ i, (\phi
+\sqcup_1 \psi) \circ j ) = (\phi, \psi). \]
+
+Conversely, $\til H : \id_E \cong \Phi \circ \Psi$, where $\til H$ is defined
+by pre composition with $H$.
+
+\end{exercise}
+
+\end{document}
