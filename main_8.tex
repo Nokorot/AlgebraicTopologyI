@@ -20,19 +20,19 @@
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{3pt}
 
+\usepackage{enumerate}
+
 \DeclareMathOperator{\holim}{holim}
 
+% I keep adding \ in from of the P's. This makes sure I get an error.
 \def\P{\undefined}
 
-\renewenvironment*{align}{
-    \begin{array}{cc}
-    % \begin{equation*}
-    % \begin{split}
-}{
-    \end{array}
-    % \end{split}
-    % \end{equation*} 
-}
+%% NOTE: The align* environment doesn't work for some reason.
+% this is a temporary fix
+\renewenvironment{align*}{
+\[ \arraycolsep=1pt \def\arraystretch{1.5}
+\begin{array}{rclrcl}
+}{ \end{array} \] }
 
 
 %%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,8 +40,8 @@
 \mmaketitle
 
 \begin{exercise}[1]
-\begin{enumerate}
-\item
+\begin{enumerate}[(a)]
+\item % a
 Let $[\xi] \in \pi_m(\holim_n P_n)$. We have
 \begin{equation}
 \pi_m(q_k)([\xi]) = [q_k \circ \xi] \q\tand 
@@ -60,14 +60,29 @@ Consider $\xi(-)_k : S^m \to P_k[0,k]$. We denote the adjoint map by
 $\hat \xi_k : S^m \times [0,1] \to P_k$. 
 Then $\hat \xi_k$ defines an unbased homotopy from $q_k \circ \xi$ to $p_k \circ q_{k+1} \circ
 \xi$. Indeed, for $x \in S^k$,
-
-\begin{equation*}
-\begin{split}
-(q_k \xi)(x)_k &= \xi(x)_k(0) = \hat \xi_k(x,0) \q{\tand} \\
-(p_k \circ q_{k+1} xi) (x) &= p_k(\xi(x)_{k+1} (0)) = \xi(x)_k(1) = \hat
+\begin{align*}
+(q_k \xi)(x)_k &=& \xi(x)_k(0) = \hat \xi_k(x,0)& \q{\tand} \\
+(p_k \circ q_{k+1} \circ \xi) (x) &=& p_k(\xi(x)_{k+1} (0)) = \xi(x)_k(1) = \hat
 \xi_k(x,1)
-\end{split}
-\end{equation*} 
+\end{align*}
+
+Furthermore 
+\begin{equation}
+\hat \xi_k (1,-) = \xi(1)_k = \omega_k. 
+\label{eq:2}
+\end{equation}
+
+We define $H : S^m \times [0,1]$ 
+\[ H(-,t) := (\omega_k|_[0,t])_\star (\hat \xi_k(-,t)). \]
+\todo{add a figure}
+Note that $H$ is continues by \pref{eq:2}. Then $H$ defines a based (at
+$\omega_k(0)$) homotopy from $q_k \xi$ to $\omega_\star (p_k \circ q_{k+1}
+\circ \xi)$. 
+
+\item % b
+
+
+
 
 
 \end{enumerate}
