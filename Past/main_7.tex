@@ -1,0 +1,102 @@
+\documentclass[a4paper,11pt,english]{article}
+\usepackage{.styles/basic}
+\usepackage{.styles/envs}
+\frenchspacing
+
+\usepackage{circuitikz}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\textbf{Algebraic Topology} - Exercise Sheet 7}
+\author{Tor Gjone (2503108) \& Michele Lorenzi (3461634)}
+
+%%%%%%% Definitions %%%%%%%%%%%%%%%%%%%%%
+\input{defs}
+
+\newSimpleHeaderEnvironment{exercise}{Exercise }
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{3pt}
+
+\newcommand{\orth}{\bot}
+
+\renewcommand{\S}[1]{\mathcal{S}(#1)}
+%%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\mmaketitle
+
+\begin{exercise}[1]
+
+Suppose $f_n \to f$ in the compact-open topology. That is for all $K \se
+X$ compact and for all $U \se Z$ open, such that $f(K)\se U$, there exists $N \in \N$, such that for all
+$n \ge N$, $f_n(K) \se U$.
+
+Let $x \in X$, then $\{x\} \se X$ is compact, so for all neighbourhoods $U$ of $f(x)$, there
+exists $N\in\N$ such that, for all $n\ge N$, $f_n(x) \in U$. So $f_n \to
+f$ pointwise (since $Z$ is Hausdorff, so that limits are unique).
+
+Now let $X = Z = [0,1]$ and 
+\[ f_n(x) = \pwf{
+2nx &\tif x \le (2n)\i \\
+2 - 2nx &\tif (2n)\i \le x \le n\i \\
+0 &\tif n\i \le x
+} \]
+
+\begin{figure}[h]
+\centering
+\input{graph_fn_fig}
+\caption{Graph of $f_n$.}
+\label{fig:1}
+\end{figure}
+
+Then $f_n \to f = 0$ pointwise. However $f_n([0,1]) =
+[0,1] \not\se [0,1/2)$, whereas $f([0,1]) = \{0\} \se [0,1/2)$. So $f_n$ does
+not converge to $f$ in the compact-open topology.
+\end{exercise}
+
+
+
+\begin{exercise}[2]
+
+It is easy to show that there are isomorphisms $\pi_{n}(F,e) \cong \pi_n(\Omega B,c_b)$. Indeed, since $p : E \to B$ is a Serre fibration, we have the long exact
+sequence
+\[ \cdots \to \pi_n(E,e) \to \pi_n(B,b) \to \pi_{n-1}(F,e) \to \pi_{n-1}(E,e) \to
+\cdots \]
+where $p\i(b)=e \in F$. Since $E$ is contractible we have $\pi_n(E,e) = 0$,
+for $n \ge 0$. So the middle map is an isomorphism and thus 
+\[ \pi_{n}(F,e) \cong \pi_{n+1}(B,b) \cong \pi_n(\Omega B,c_b) \]
+for $n \ge 0$.
+
+To show that $F$ and $\Omega B$ are homotopy equivalent we need to find a map $F\to\Omega B$ inducing these isomorphisms. A reasonable choice seems to be the map $f$ constructed using a deformation retraction $H$ of $E$ to the point $e$: for any point $x$ in the fiber,  $p\circ H(x,-)$ defines a loop at $b$. We need to show that this induces isomorphisms $\pi_n(F,x)\to\pi_n(\Omega B,f(x))$ for any $x\in F$ and any $n\geq0$, i.e. we are left to show injectivity and surjectivity of these maps. This can be done using the exponential law and the homotopy lifting property, but there is an easier proof: we can define a map $E\to B^{[0,1]}$ by considering $p\circ H(x,-)$ for any $x\in E$, then the long exact sequence for $F\to E\to B$ maps to the long exact sequence for $\Omega B\to B^{[0,1]}\to B$, and since $E$ and $B^{[0,1]}$ are contractible, by the five-lemma we obtain the claim.
+\end{exercise}
+
+
+\begin{exercise}[3](The solution to exercise 6.3 might be useful for reference.)
+
+Given $\sigma \in \Sigma_3$, let $\Psi_\sigma$ be the composite map defined in
+the exercise. 
+
+Consider a pair $(\phi,\psi) \in \pi_1(X) \times \pi_1(X)$, with $\phi=[f]$ and $\psi=[g]$. The first isomorphism maps, this pair to the class $[(f,g)]$, which is mapped to $[h] \in \pi_0(E)$, where $h: \nb^2 \to E$ is such that $h |_{I_{0,1}} = f$ and $h |_{I_{1,2}} = g$. Furthermore $h|_{I_{0,2}}$ is homotopy equivalent to $fg$ (see figure). The map $\pi_0(\sigma^*)$ permutes these edges according to $\sigma$. The rest of the maps then restricts to the edges $I_{0,1}$ and $I_{1,2}$. 
+
+\begin{figure}[h]
+\centering
+\input{triangle_fig_4}
+\caption{}
+\label{fig:my_label}
+\end{figure}
+
+Referring to the figure, it is quite clear that the action of swapping the vertices $0$ and $1$, reverses the orientation of $f$ and exchanges $g$ and $fg$. Then we see that:
+
+\begin{eqnarray*}
+\Psi_{(0\; 1)};&& (\phi, \psi) \mapsto (\phi^{-1}, \phi \psi) \\
+\Psi_{(0\; 2)};&& (\phi, \psi) \mapsto (\psi^{-1}, \phi^{-1}) \\
+\Psi_{(1\; 2)};&& (\phi, \psi) \mapsto (\phi\psi, \psi^{-1})
+\end{eqnarray*}
+
+Furthermore it is easy to observe that if $\sigma = \sigma_1 \sigma_2$, then $\Psi_\sigma = \Psi_{\sigma_1} \circ \Psi_{\sigma_2}$. So we are done since the tree other permutations are products of two of the cases listed above.
+\end{exercise}
+
+\end{document}
