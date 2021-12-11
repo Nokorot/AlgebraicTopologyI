@@ -1,4 +1,3 @@
 .log
 .compile.sh
-Sheets.pdf
-AlgTopI.pdf
+*.pdf
