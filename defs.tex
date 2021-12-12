@@ -1,4 +1,14 @@
 
+% It's here because it's messing up my syntax highlighting 
+%% NOTE: The align* environment doesn't work for some reason.
+% this is a temporary fix
+\renewenvironment{align*}{
+\[ \arraycolsep=1pt \def\arraystretch{1.5}
+\begin{array}{rclrcl}
+}{ \end{array} \] }
+
+
+
 % Michele's stuff
 % (I hope I don't break something...)
 % (Most of the command are thought for livetexing but some became habits)
@@ -58,6 +68,7 @@
 \newcommand{\onto}{\twoheadrightarrow}
 \newcommand{\nb}{\nabla}
 \renewcommand{\hat}{\widehat}
+\newcommand{\wtil}{\widetilde}
 
 \usepackage{scalerel,stackengine}
 \stackMath
