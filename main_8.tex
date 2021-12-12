@@ -108,7 +108,27 @@ $\pi_m(q_n)(\bar H) = \xi$.
 \end{enumerate}
 \end{exercise}
 
+\begin{exercise}[3]
+Let $X = M_n(A)$ be a Moore space with $H_n(X,\Z) \cong A$. 
+By the Hurewicz Theorem, $\pi_k(X) = 0$ for $k \le n-1$ and $\pi_n(X) = A$, so 
+we may construct an Eilenber-MacLane, space $\til X$, starting with $X$ and
+inductively "kill" the higher homotopy groups. 
 
+Since $\pi_k(X)$ is "correct" (that is, it's what we want of the final space) 
+the first homotopy group we might need to kill is in dimension $k=n+1$. 
+In order to kill this homotopy we attach $n+2$ cells to $X$, which by cellular
+approximation does not effect the homology in dimension $n+1$ and lower.
+
+Similarly, to kill the higher homotopy groups, we attach cells of one dimension
+higher. So throughout the construction of $\til X$ the homology group in dimension
+$n+1$ is unchanged so we may conclude that $H_{n+1}(\til X, \Z) H_{n+1}(X, \Z) = 0$. 
+
+Finally, since the Eilenberg-MacLane space is unique up to homotopy we may
+conclude that $H_{n+1}(K(A,n),\Z) = 0$ independently of the construction of
+$K(A,n)$.
+
+
+\end{exercise}
 
 
 \end{document}
