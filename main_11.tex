@@ -1,0 +1,91 @@
+\documentclass[a4paper,11pt,english]{article}
+\usepackage{.styles/basic}
+\usepackage{.styles/envs}
+\frenchspacing
+
+\usepackage{circuitikz}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\textbf{Algebraic Topology} - Exercise Sheet 11}
+\author{Tor Gjone (2503108) \& Michele Lorenzi (3461634)}
+
+%%%%%%% Definitions %%%%%%%%%%%%%%%%%%%%%
+\input{defs}
+
+\newSimpleHeaderEnvironment{exercise}{Exercise }
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{3pt}
+
+\usepackage{enumerate}
+
+\DeclareMathOperator{\holim}{holim}
+\newcommand{\op}{{\operatorname{op}}}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\sk}{sk}
+
+% I keep adding \ in from of the P's. This makes sure I get an error.
+\def\P{\undefined}
+
+%%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\mmaketitle
+
+\begin{exercise}[1]\ 
+
+Given two simplicial sets $X$ and $Y$, we defined (but note that this is also the categorical product in the category of presheaves) their product $X\times Y$ as the functor \[\Delta^\op\xto{(X,Y)}\Set\times\Set\xto{\times}\Set,\] i.e. $(X\times Y)_n=X_n\times Y_n$ and $\alpha^*_{X\times Y}=\alpha^*_X\times\alpha^*_Y$.
+
+In particular, an $n$-simplex $x=(x_1,x_2)$ is degenerate if there is a surjective morphism $\sigma:[n]\to [k]$ with $k<n$, and $y=(y_1,y_2)\in X_k\times Y_k$ such that $x=(\sigma^*(y_1),\sigma^*(y_2))$. Since every surjective morphism in $\Delta$ can be written uniquely as a composition of codegeneracy maps, this means that a degenerate $n$-simplex is one that can be written as $(s^*_i(y_1),s^*_i(y_2))$ for a given codegeneracy map $s_i$. 
+
+We also know that a simplex $x$ can be written uniquely as $\sigma^*(z)$ for $z$ a non-degenerate simplex and $\sigma$ a surjective morphism.
+
+Now, let $x=(\sigma^*_1(x_1),\sigma^*_2(x_2))$ be an $n+m$ simplex in $X_{m+n}\times Y_{n+m}$, with $x_1$ a non-degenerate $m$-simplex and $x_2$ a non-degenerate $n$-simplex and $\sigma_1=s_{i_1}\dots s_{i_n}$ and $\sigma_2=s_{j_1}\dots s_{j_m}$ with the $i_\alpha$ and the $j_\beta$ distinct. Given uniqueness of the pairs $(\sigma_1,x_1)$ and $(\sigma_2,x_2)$ and of the decompositions $\sigma_1=s_{i_1}\dots s_{i_n}$ and $\sigma_2=s_{j_1}\dots s_{j_m}$, it is not possible to write $x$ in the form $(s^*_i(y_1),s^*_i(y_2))$. The same argument works in every dimension less than $n+m$.
+
+Every $k$-dimensional simplex for $k>m+n$ will instead be degenerate. Indeed, let $x=(\sigma^*_1(x_1),\sigma^*_2(x_2))$ be such a simplex, since $k>m+n$ and $x_1$ and $x_2$ are at most $m$ or $n$-dimensional in the decompositions there will be some codegeneracy map $s_i$ repeating (by the pigeonhole principle). Using the simplicial identities we can then write $x$ as $(s^*_i(y_1),s^*_i(y_2))$, i.e. $x$ is degenerate.
+
+For the second question, observe that by the same reasoning we have used before any non-degenerate $(n+1)$-simplex in $\Delta^n\times\Delta^1$ would be of the form $(s^*_i(x_1),\sigma^*(x_2))$ for $x_1$ the non-degenerate $n$-simplex of $\Delta^n$, $x_2$ the non-degenerate $1$-simplex of $\Delta^1$ and $\sigma$ a composition of $n$ codegeneracy maps different from $s_i$. In particular, this means that non-degenerate $(n+1)$-simplices are in bijection with the codegeneracy maps $s_i$ for $0\le i\le n$, hence they are $n+1$.
+
+\end{exercise}
+
+\begin{exercise}[2]
+
+i) We have essentially already seen this in class while studying the compact open topology: given a continuous map $H: Z \times Y \rightarrow X$, the adjoint map $h: Z \rightarrow X^{Y}$ is continuous, where $X^{Y}$ has the compact open topology, hence the result follow by applying this to the identity (in class we actually did everything with the order of the factors in the product switched, but it is the same).
+
+ii) Again, we have seen most of this in class: that we have a bijection of Hom-sets follows from the fact that $K$ is compact, hence locally compact, naturality is essentially tautological (I swear I checked, but it is not worth the time to write it down!).
+
+iii) This is the interesting part of the exercise. We know that a simplicial set is a colimit of the diagram
+\[(\sk^0 X)_n\into (\sk^1 X)_n\into\cdots\into (\sk^m X)_n\into\cdots\]
+hence, given that both the geometric realization functor and the functor $-\times|\Delta^{1}|$ are left adjoint and so preserve colimits, it suffices to prove the claim for the simplicial skeleta. This can be proven by induction: for $n=0$ there is nothing to prove, while for $n>0$ observe that (as we have proved in class) $\sk^n X$ is the pushout
+\[
+\begin{tikzcd}[column sep=large]
+\coprod_{x\in X_n\sm Y_n}\de\Delta^n \ar[d,"\amalg\,x^\flat|_{\de\Delta^n}"'] \ar[r,hook] & \coprod_{x\in X_n\sm Y_n}\Delta^n \ar[d,"\amalg\,x^\flat"]\\
+\sk^{n-1} X \ar[r,hook] & \sk^n X
+\end{tikzcd}
+\]
+Now, it is possible to prove that $\times\Delta^1$ has an adjoint also as a functor $\sSet\to\sSet$, which gives a pushout
+\[
+\begin{tikzcd}[column sep=large]
+\coprod_{x\in X_n\sm Y_n}\de\Delta^n\times\Delta^1 \ar[d,"\amalg\,x^\flat|_{\de\Delta^n}"'] \ar[r,hook] & \coprod_{x\in X_n\sm Y_n}\Delta^n\times\Delta^1 \ar[d,"\amalg\,x^\flat"]\\
+\sk^{n-1}\times\Delta^1 X \ar[r,hook] & \sk^n X\times\Delta^1
+\end{tikzcd}
+\]
+Since the claim holds for every element of the pushout diagram, it is easy to show that (by uniqueness of the pushout) there is an isomorphism $|\sk^n\times\Delta^1|\cong|\sk^n|\times|\Delta^1|$, which finishes the exercise.
+
+\end{exercise}
+
+\begin{exercise}[3]
+
+i) A $G$-simplicial set is the data of an underlying simplicial set $Y$ and a $G$-action on $Y_n$ for any $n\geq0$ such that $\alpha^*:Y_n\to Y_m$ is $G$-equivariant for all $\alpha:[m]\to[n]$ in $\Delta$.
+
+Given an $n$-simplex $x\in X_n$, we consider morphisms $\delta_0, ..., \delta_n : [0]\to[n]$ such that $\delta^*_i(x)$ is the $i$-th vertex of $x$. 
+    
+Then if $\delta_i^*(g\cdot x) = \delta_i^*(h\cdot x)$ for all $i$, we have  $g\cdot \delta_i^*(x) = h\cdot \delta_i^*(x)$ for all $i$, but since $G$ acts freely on $X_0$ we get $g=h$, i.e. $G$ acts freely on $X_n$.
+
+The library is closing...
+
+\end{exercise}
+
+\end{document}

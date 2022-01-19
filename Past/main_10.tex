@@ -1,0 +1,93 @@
+\documentclass[a4paper,11pt,english]{article}
+\usepackage{.styles/basic}
+\usepackage{.styles/envs}
+\frenchspacing
+
+\usepackage{circuitikz}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\textbf{Algebraic Topology} - Exercise Sheet 10}
+\author{Tor Gjone (2503108) \& Michele Lorenzi (3461634)}
+
+%%%%%%% Definitions %%%%%%%%%%%%%%%%%%%%%
+\input{defs}
+
+\newSimpleHeaderEnvironment{exercise}{Exercise }
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{3pt}
+
+\usepackage{enumerate}
+
+\DeclareMathOperator{\holim}{holim}
+
+% I keep adding \ in from of the P's. This makes sure I get an error.
+\def\P{\undefined}
+
+%%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\mmaketitle
+
+\begin{exercise}[1]\ 
+
+The case $n=0$ is trivial, a connected discrete space must be a single point.
+
+For $n\ge1$ the conclusion follows immediately (provided that there is no hidden trap, but I do not see any) from Whitehead's theorem, in the special case when all the homotopy groups are zero and the inclusion of a point is a homotopy equivalence. Indeed since the CW-complex we are considering is $n$-connected, its homotopy groups up to $n$ vanish, and since it is $n$-dimensional, its singular homology groups above $n$ also vanish (this can be seen considering cellular homology, for example), hence by Hurewicz also its homotopy groups above $n$ vanish, i.e. all homotopy groups vanish.
+
+\end{exercise}
+
+\begin{exercise}[2]\ 
+
+(i)$\implies$(ii) (Note: this argument is kind of uselessly involved, one can show this without invoking the homotopy groups $\pi_n(f)$, just by working with relative homotopy groups. I think it works though, so I am keeping it anyway. Hopefully there are no huge mistakes.) Since $f$ is a weak homotopy equivalence, by the long exact sequence associated to it, we obtain that the groups $\pi_n(f)$ are trivial for every $n\ge0$, hence given a commutative square:
+\[
+    \begin{tikzcd}
+    (S^{n-1},s_0) \arrow[d,hook] \arrow[r,"\alpha"] & (X,x_0) \arrow[d,"f"] \\
+    (D^n,s_0) \arrow[r,"\beta"] & (Y,y_0)
+    \end{tikzcd}
+\]
+there exists homotopies between $\alpha$, $\beta$ and the constant maps respectively to $x_0$ and $y_0$ that make the following square commute:
+\[
+    \begin{tikzcd}
+    (S^{n-1},s_0)\times[0,1] \arrow[d,hook] \arrow[r,"H"] & (X,x_0) \arrow[d,"f"] \\
+    (D^n,s_0)\times[0,1] \arrow[r,"\bar H"] & (Y,y_0)
+    \end{tikzcd}
+\]
+
+Now, given the homotopy $H:S^{n-1}\times[0,1]\to X$, the HEP for the pair $(D^n,S^{n-1})$ gives a Homotopy $K:D^n\times[0,1]\to X$ such that $K|_{S^{n-1}\times[0,1]}=H$, hence $\lambda:=K(-,0):D^n\to X$ is a map which restricted to $\de D^n$ is equal to $\alpha$. But then the square:
+\[
+    \begin{tikzcd}
+    (S^{n-1},s_0) \arrow[d,hook] \arrow[r,"\alpha"] & (X,x_0) \arrow[d,"f"] \\
+    (D^n,s_0) \arrow[r,"{f\circ\lambda}"] & (Y,y_0)
+    \end{tikzcd}
+\]
+is also $0$ in $\pi_n(f)$. Hence again we get a homotopy from $f\circ\lambda$ to the constant map to $y_0$. Using this latter homotopy and $\bar H$ we obtain a based homotopy $M$ between $\beta$ and $f\circ\lambda$. This homotopy is not relative to $\de D^n$, but we can obtain a homotopy that satisfies this property by composing $M:D^n\times[0,1]\to Y$ with a homotopy relative $S^{n-1}\times\cb{0}$ between $D^n\times\cb{0}$ and $D^n\times\cb{1}\cup S^{n-1}\times[0,1]$ inside $D^n\times[0,1]$.
+
+(ii)$\implies$(iii) We can extend a map $L\to X$ cell by cell using the previous implication, to obtain the desired map $K\to X$ (it will be continuous by virtue of the final topology on the CW-complex K).
+
+(iii)$\implies$(iv) Surjectivity. Given a map $\beta:K\to Y$, consider a $0$-cell $c$ of $K$ and the map $\alpha$ from the subcomplex $L$ of $K$ consisting of just $c$ that sends $c$ to a point of $f^{-1}(\beta(p))$. By the previous point we get a lift $\lambda:K\to X$ such that $f\circ\lambda$ is homotopic to $\beta$.
+
+Injectivity. Consider two maps $\alpha,\alpha':K\to X$ such that $f\circ\alpha$ and $f\circ\alpha'$ are homotopic and the resulting diagram:
+\[
+    \begin{tikzcd}
+    K\times\de[0,1] \arrow[d,hook] \arrow[r] & X \arrow[d,"f"] \\
+    K\times[0,1] \arrow[r,"H"] & Y
+    \end{tikzcd}
+\]
+where $H$ is an homotopy between $f\circ\alpha$ and $f\circ\alpha'$. By the previous point we get a lift $\bar H:K\times[0,1]\to X$ that is a homotopy between $\alpha$ and $\alpha'$.
+
+(iv)$\implies$(i) I do not know how to prove this one.
+
+\end{exercise}
+
+\begin{exercise}[3]\ 
+
+(i) This is clear from the theorem about classification of cohomology operations, because then we have that natural transformations are in bijection with a cohomology group which is zero since $m<n$ and $K(A,n)$ (being $(n-1)$-connected) can be chose to have a single $0$-cell as the $(n-1)$-skeleton.
+
+Time out.
+
+\end{exercise}
+
+\end{document}
