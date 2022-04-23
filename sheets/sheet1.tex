@@ -3,7 +3,7 @@
 \begin{document}
 \mmaketitle
 
-\begin{exercise}[1]\ 
+\begin{exercise}[1 \& 2]\ 
 % Let $Y$ be a pointed space, $m \ge 1$ and $f:S^m \to S^m$ a continuous based
 % map of degree $k$. Show that for every homotopy class $x \in \pi_n(S^m \wedge Y
 % )$ the classes $(f\wedge Y)^*(x)$ and $k\cdot x$ become equal in
@@ -11,40 +11,66 @@
 % Give an example to show that $(f\wedge Y)^*(x)$ need not equal $k\cdot x$ in
 % $\pi_n(S^m\wedge Y)$ before applying the suspension homomorphism.
 
-We will denote the $k$-fold by $f_m : S^m \to S^m$. 
+We will denote the degree $k$ map, by $f_m : S^m \to S^m$. 
 
 Let $x = [\phi : S^n \to S^m \wedge Y]$. 
 We consider the (no necessarily commuting) diagram 
-\begin{tikzcd}
+\[ \begin{tikzcd}
 S^n \arrow[r, "\phi"] \arrow[d, "f_n"]& S^m \wedge Y \arrow[d, "f_m \wedge Y"]
 \\
 S^n \arrow[r, "\phi"] & S^m \wedge Y
-\end{tikzcd}
+\end{tikzcd}  \]
 Where $[ (f_m \wedge Y) \circ \phi ] = (f\wedge Y)_*(x)$ and $[ \phi \circ f_n ]
 = k \cdot x$. 
 
 Applying the suspension functor, this diagram is sent to 
-\begin{tikzcd}
+\[ \begin{tikzcd}
 S^1 \wedge S^n \arrow[r, "S^1 \wedge \phi"] \arrow[d, "S^1 \wedge f_n"]& S^1 \wedge S^m \wedge Y \arrow[d, "S^1 \wedge f_m \wedge Y"]
 \\
 S^1 \wedge S^n \arrow[r, "S^1 \wedge \phi"] & S^1 \wedge S^m \wedge Y
-\end{tikzcd}
+\end{tikzcd}  \]
 We want to show that this diagram commutes up to homotopy.
 
 We observe that the map $S^m \wedge f_1 : S^{m+1} \to S^{m+1}$ is a $k$-fold
 map. Since $(S^m \wedge -)_*$ is isomorphism of homology groups, we have $(S^m
 \wedge -)_*([f_1]) = [S^m \wedge f_1] = k \in H^{m+1}$, so by the Hurwitz's theorem $[S^m \wedge f_1] = k \in \pi_{m+1}(S^{m+1})$.
-So we may wlog assume $f_m = S^{m-1} \wedge f_1$. So up to homotopy the diagram
-can be written as 
-
-\begin{tikzcd}
-S^1 \wedge S^n \arrow[r, "S^1 \wedge \phi"] \arrow[d, "S^1 \wedge S^{n-1} \wegde
-f_1"]& S^1 \wedge S^m \wedge Y \arrow[d, "S^1 \wedge S^{m-1} \wedge f_1 \wedge Y"]
+So we may wlog assume $f_m = S^{m-1} \wedge f_1$. 
+Furthermore the map $\tau : S^1 \wedge S^1 \to S^1 \wedge S^1$, which swaps the two
+spheres, is base homotopic to the identify. So identifying $S^n$ with
+$\Wedge_{i=1}^n S^1$, the diagram can be written, up to homotopy, as 
+\[ \begin{tikzcd}
+S^1 \wedge S^n \arrow[r, "S^1 \wedge \phi"] \arrow[d, "f_1 \wedge S^n"]& S^1 \wedge S^m \wedge Y \arrow[d, " f_1 \wedge S^m \wedge Y"]
 \\
 S^1 \wedge S^n \arrow[r, "S^1 \wedge \phi"] & S^1 \wedge S^m \wedge Y
+\end{tikzcd}  \]
+which clearly commutes.
+
+For the counter example we consider the example given in question 2. 
+In question 2 we have the commutative diagram
+
+\begin{equation}
+\label{dgr:1}
+\begin{tikzcd}
+S^3 \arrow[r, "\eta"] \arrow[d, "g"] & \C P^1 \arrow[d, "f"] \\
+S^3 \arrow[r, "\eta"] & \C P^1 
 \end{tikzcd}
+\end{equation}
+
+The map $f$ has degree $-1$ and the map $g$ had degree $1$. So if we suppose 
+the two classes are the same without suspension, then 
+\[ -[\eta] = (f \wedge S^0)_* ([\eta]) = [ \eta \circ g ] = [\eta] \quad\in
+\pi_3(S^2, *), \]
+where the second equality follows form the commutativity of the diagram
+\pref{dgr:1}. However $-[\eta] \ne [\eta]$ in $\pi_3(S^2, *) = \Z$, so this is a contradiction.
+
+On the other hand, by suspending the diagram \pref{dgr:1} and using the fact
+from exercise 1, that $\Sigma_* (-[\eta]) = \Sigma_* ( (f \wedge S^0)_* ([\eta])
+)$, we get that 
+\[ -\Sigma_*[\eta] = \Sigma_* [ \eta \circ g ] = \Sigma_* [\eta]
+\quad\in\pi_4(S^3,*). \]
+So we may conclude that $2 \cdot (\Sigma_*[\eta]) = 0 \in \pi_4(S^3, *)$.
 
 
-\rend{exercise}
+\end{exercise}
 
 \end{document}

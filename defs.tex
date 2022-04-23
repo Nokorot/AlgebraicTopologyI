@@ -52,7 +52,7 @@
 \newcommand{\cont}{\reflectbox{$\in$}}
 \newcommand{\mi}{{m-1}}
 \newcommand{\ki}{{k-1}}
-\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\Colim}{colim}
 \DeclareMathOperator{\tel}{tel}
 \DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\ev}{ev}
@@ -81,6 +81,31 @@
 }{2.4ex}}%
 \stackon[-6.9pt]{#1}{\tmpbox}%
 }
+
+\makeatletter
+\newsavebox{\@Wedge}
+\sbox\@Wedge{%
+% $\mathlarger{ \mathlarger{\mathlarger{ \mathlarger{ \wedge }}}}$ }
+\scalebox{1.5}{\raisebox{-1pt}{$\wedge$}} }
+\newcommand{\Wedge}{\usebox{\@Wedge}}
+\makeatother
+
+
+% Direct limit and colimit
+\makeatletter
+\newcommand{\lim@}[2]{%
+  \vtop{\m@th\ialign{##\cr
+    \hfil$#1\operator@font lim$\hfil\cr
+    \noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+    \noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\newcommand{\colim}{%
+  \mathop{\mathpalette\varlim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\newcommand{\invlim}{%
+  \mathop{\mathpalette\varlim@{\leftarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\makeatother
 
 
 \newcommand{\diagSquare}[8]{
