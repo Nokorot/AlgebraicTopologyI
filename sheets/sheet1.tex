@@ -1,0 +1,50 @@
+\sheet 1
+
+\begin{document}
+\mmaketitle
+
+\begin{exercise}[1]\ 
+% Let $Y$ be a pointed space, $m \ge 1$ and $f:S^m \to S^m$ a continuous based
+% map of degree $k$. Show that for every homotopy class $x \in \pi_n(S^m \wedge Y
+% )$ the classes $(f\wedge Y)^*(x)$ and $k\cdot x$ become equal in
+% $\pi_{1+n}(S^{1+m}\wedge Y)$ after applying the suspension homomorphism.
+% Give an example to show that $(f\wedge Y)^*(x)$ need not equal $k\cdot x$ in
+% $\pi_n(S^m\wedge Y)$ before applying the suspension homomorphism.
+
+We will denote the $k$-fold by $f_m : S^m \to S^m$. 
+
+Let $x = [\phi : S^n \to S^m \wedge Y]$. 
+We consider the (no necessarily commuting) diagram 
+\begin{tikzcd}
+S^n \arrow[r, "\phi"] \arrow[d, "f_n"]& S^m \wedge Y \arrow[d, "f_m \wedge Y"]
+\\
+S^n \arrow[r, "\phi"] & S^m \wedge Y
+\end{tikzcd}
+Where $[ (f_m \wedge Y) \circ \phi ] = (f\wedge Y)_*(x)$ and $[ \phi \circ f_n ]
+= k \cdot x$. 
+
+Applying the suspension functor, this diagram is sent to 
+\begin{tikzcd}
+S^1 \wedge S^n \arrow[r, "S^1 \wedge \phi"] \arrow[d, "S^1 \wedge f_n"]& S^1 \wedge S^m \wedge Y \arrow[d, "S^1 \wedge f_m \wedge Y"]
+\\
+S^1 \wedge S^n \arrow[r, "S^1 \wedge \phi"] & S^1 \wedge S^m \wedge Y
+\end{tikzcd}
+We want to show that this diagram commutes up to homotopy.
+
+We observe that the map $S^m \wedge f_1 : S^{m+1} \to S^{m+1}$ is a $k$-fold
+map. Since $(S^m \wedge -)_*$ is isomorphism of homology groups, we have $(S^m
+\wedge -)_*([f_1]) = [S^m \wedge f_1] = k \in H^{m+1}$, so by the Hurwitz's theorem $[S^m \wedge f_1] = k \in \pi_{m+1}(S^{m+1})$.
+So we may wlog assume $f_m = S^{m-1} \wedge f_1$. So up to homotopy the diagram
+can be written as 
+
+\begin{tikzcd}
+S^1 \wedge S^n \arrow[r, "S^1 \wedge \phi"] \arrow[d, "S^1 \wedge S^{n-1} \wegde
+f_1"]& S^1 \wedge S^m \wedge Y \arrow[d, "S^1 \wedge S^{m-1} \wedge f_1 \wedge Y"]
+\\
+S^1 \wedge S^n \arrow[r, "S^1 \wedge \phi"] & S^1 \wedge S^m \wedge Y
+\end{tikzcd}
+
+
+\rend{exercise}
+
+\end{document}
