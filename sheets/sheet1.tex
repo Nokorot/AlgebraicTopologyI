@@ -33,7 +33,7 @@ We want to show that this diagram commutes up to homotopy.
 
 We observe that the map $S^m \wedge f_1 : S^{m+1} \to S^{m+1}$ is a $k$-fold
 map. Since $(S^m \wedge -)_*$ is isomorphism of homology groups, we have $(S^m
-\wedge -)_*([f_1]) = [S^m \wedge f_1] = k \in H^{m+1}$, so by the Hurwitz's theorem $[S^m \wedge f_1] = k \in \pi_{m+1}(S^{m+1})$.
+\wedge -)_*([f_1]) = [S^m \wedge f_1] = k \in H_{m+1}$, so by Hurewicz theorem $[S^m \wedge f_1] = k \in \pi_{m+1}(S^{m+1})$.
 So we may wlog assume $f_m = S^{m-1} \wedge f_1$. 
 Furthermore the map $\tau : S^1 \wedge S^1 \to S^1 \wedge S^1$, which swaps the two
 spheres, is base homotopic to the identify. So identifying $S^n$ with
@@ -68,8 +68,29 @@ from exercise 1, that $\Sigma_* (-[\eta]) = \Sigma_* ( (f \wedge S^0)_* ([\eta])
 )$, we get that 
 \[ -\Sigma_*[\eta] = \Sigma_* [ \eta \circ g ] = \Sigma_* [\eta]
 \quad\in\pi_4(S^3,*). \]
-So we may conclude that $2 \cdot (\Sigma_*[\eta]) = 0 \in \pi_4(S^3, *)$.
+So we may conclude that $2 \cdot (\Sigma_*[\eta]) = 0 \in \pi_4(S^3,*)$.
+\end{exercise}
 
+\begin{exercise}[3]\
+
+(a) Consider $f:S^{m+k}\to S^m$ and $g:S^{n+l}\to X_n$. By definition of stable homotopy groups $[f\cdot g]=[\sigma_1\circ(S^1\smsh(f\cdot g))]$. First we check that this equals both $[(S^1\smsh f)\cdot g]$ and $(-1)^k[f\cdot(\sigma_1\circ(S^1\smsh g))]$. The first one is because
+\[\sigma_1\circ(S^1\smsh(f\cdot g))=\sigma_1\circ(S^1\smsh\sigma^n)\circ(S^1\smsh f\smsh g)=\sigma^{n+1}\circ(S^1\smsh f\smsh g)=(S^1\smsh f)\cdot g.\]
+For the second one, observe that in the following diagram
+\[
+\begin{tikzcd}
+S^1\smsh S^{m+k}\smsh S^{n+l} \ar[r,"S^1\smsh f\smsh g"] & S^1\smsh S^m\smsh X_n \ar[d,"\tau_2\smsh X_n"] \ar[r,"S^1\smsh\sigma^m"] & S^1\smsh X_{n+m} \ar[r,"\sigma_1"] & X_{n+m+1}\\
+S^{m+k}\smsh S^1\smsh S^{n+l} \ar[u,"\tau_1"] \ar[r,"f\smsh S^1\smsh g"] & S^m\smsh S^1\smsh X_n \ar[r,"S^m\smsh\sigma_1"] & S^m\smsh X_{n+1} \ar[r,"\sigma^m"] & X_{n+m+1}
+\end{tikzcd}
+\]
+where $\tau_1$ and $\tau_2$ are the obvious homeomorphisms induced by swapping factors in the smash product, the composition of the bottom row is $f\cdot(\sigma_1\circ(S^1\smsh g))$, while the top row is $\sigma_1\circ(S^1\smsh(f\cdot g))$. The maps $\tau_1$ and $\tau_2$ are of degree respectively $(-1)^{m+k}$ and $(-1)^m$, and the commutativity of the left square is clear. Observe that the map $S^1\smsh f\smsh g$ is a suspension, so it induces a morphism on homotopy groups by precomposition. This shows that $[S^1\smsh f\smsh g]=(-1)^k[f\smsh S^1\smsh g]$ in the group $\pi_{m+k+n+l+1}(S^{m+1}\smsh X_n)$. By definition of $\sigma^n$ we have $\sigma_1\circ S^1\smsh\sigma^m=\sigma^m\circ S^m\smsh\sigma_1$ and combining with the previous equality we get $[\sigma_1\circ(S^1\smsh(f\cdot g))]=(-1)^k[f\cdot(\sigma_1\circ(S^1\smsh g))]$.
+
+If now we have different maps $f':S^{m'+k}\to S^{m'}$ and $g':S^{n'+l}\to X_{n'}$ representing $[f]$ and $[g]$ respectively in $\pi_k(\mathbb S)$ and $\pi_l(X)$, we can take representatives of all everything $(f,g,f',g')$ in an advanced enough point of the spectra by smashing with $S^1$ as many times as needed. This process does not change $[f]\cdot[g]$ or $[f']\cdot[g']$ by what we have seen above. Hence we may assume wlog that $m=m'$, $n=n'$ and $f\simeq f'$ and $g\simeq g'$. But this implies $f\smsh g\simeq f'\smsh g'$, thus $[f\cdot g]=[f'\cdot g']$ and so we have proved well-definedness.
+
+(c) Let $S^m$ be the identity on the $m$-sphere. Then
+\[[S^m]\cdot[g]=[S^m\cdot g]=[\sigma^m\circ(S^m\smsh g)]=[g]\]
+where the first equality comes from the definition of the pairing, the second equality is just by definition of $S^m\cdot g$ and the third equality is by definition of the stable homotopy groups.
+
+(b), (d), (e) missing for lack of time...
 
 \end{exercise}
 
