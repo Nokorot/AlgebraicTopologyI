@@ -1,0 +1,139 @@
+\sheet 2
+
+\def \L{\mathbb{L}}
+\def \simto{\xrightarrow{\sim}}
+\def \O{\mathcal{O}}
+
+\begin{document}
+\mmaketitle
+
+\begin{exercise}[1]\ 
+\end{exercise}
+
+\begin{exercise}[2]\ 
+\begin{enumerate}
+\item[(a)]
+Fix a linear isometry $\psi: \R^n \simto W$. Let 
+$q : X_n \to X^\flat(W)$ denote the quotient map 
+\[ x \mapsto [\psi \wedge x]. \]
+and define $\eta: X^\flat(W) \to X_n$ by 
+\[ [\phi \wedge x] \mapsto (\psi^{-1} \circ \phi) . x. \]
+Where $(\psi^{-1} \circ \phi)$ is consider as an element in $O(n)$ action on
+$x$.
+
+Then, for $x \in X^n$ and $\phi \in \L(\R^n, W)_+$ 
+\begin{align*}
+(q \circ \eta) ([x \wedge \phi]) 
+&= [\psi \wedge (\psi^{-1} \circ \phi) . x ] 
+= [\psi \circ \psi^{-1} \circ \phi \wedge x]
+= [\phi \wedge x], \q{\tand} \\
+(\eta \circ q) (x) 
+&= (\psi^{-1} \circ \psi) . x 
+= x
+\end{align*}
+Clearly both $q$ and $\eta$ are continues, proving the clime.
+
+\item[(b)]
+We denote the map in the exercise by $\mu$ and
+let $A \in O(n)$, and $x, \psi, \phi$ as in the exercise, then 
+\begin{align*}
+\mu( \psi \wedge (\phi \circ A) \wedge x ) 
+&= (\psi \circ \phi \circ A) \wedge x  \\
+&\sim (\psi \circ \phi) \wedge A . x \\
+&= \mu( \psi \wedge \phi \wedge A . x ) 
+\end{align*}
+So the map to descend ('factor' through) to the quotient. 
+
+\item[(c)]
+% We have the following diagram 
+% \[ \begin{tikzcd}
+% S^V \wedge \L(\R, W)_+ \wegde X_n \arrow[r]
+% & \L(\R^{m+n}, V \oplus W)_+ \wedge X_{m+n} \\
+% v \wedge \phi \wedge x \arrow[r, mapsto]
+% & (\psi \oplus \phi) \wedge \sigma^m(\psi^{-1}(v)\wedge x)
+% \end{tikzcd} \]
+
+We have 
+\begin{align*}
+v \wedge (\phi \circ A) \wedge x 
+&\mapsto (\psi \oplus (\phi \circ A)) \wedge \sigma^n(\psi^{-1}(v) \wedge x) \\
+&\sim (\psi \oplus \phi) \wedge (I_m\oplus A) . \sigma^n (\psi^{-1}(v) \wedge x)
+\\
+&= (\psi \oplus \phi) \wedge \sigma^n (\psi^{-1}(v) \wedge A.x)
+\end{align*}
+Where $I_m \in O(m)$ is the unit matrix and $I_m\oplus A$ the diagonal block
+matrix. So the mapping respects the equivalence relation. 
+
+Let $\psi' : \R^m \to V$, then $\psi' = \psi \circ B$ for some $B \in O(m)$, and
+we have
+\begin{align*}
+&(\psi' \oplus \phi) \wedge \sigma^n ((\psi')^{-1}(v) \wedge x) \\
+&\sim (\psi \oplus \phi) \wedge (B \oplus I)\sigma^n ((\psi')^{-1}(v) \wedge x) \\
+&= (\psi \oplus \phi) \wedge \sigma^n (\psi^{-1}(v) \wedge x) \\
+\end{align*}
+So the definition is independent of the choice of $\psi$.
+
+\item[(d)]
+To define an orthogonal spectra, we define a based continues functor $X^\flat :
+\O \to T_*$. 
+
+
+Let $U, V$ and $W$ denote inner product spaces, 
+Firstly,we define $X^\flat (W)$ as in (a). Secondly we need to define 
+$\mu_{V,W}: \O(V, W) \wedge X^\flat(V) \to X^\flat(W)$, satisfying
+associativity, ie. 
+\[ \begin{tikzcd}[column sep = 7em]
+\O(V, W) \wedge \O(U,V) \wedge X^\flat(U) 
+\arrow[r, "O(V{,}W) \wedge \mu_{U{,}V}"] 
+\arrow[d, "\circ \wedge X^\flat(U)"] 
+& \O(V, W) \wedge X^\flat(V) 
+\arrow[d, "\mu_{V{,}W}"] \\ 
+\O(U,W) \wedge X^\flat(U) 
+\arrow[r, "\mu_{U{,}W}"] 
+& X^\flat(W)
+\end{tikzcd} \]
+commutes. Furthermore, we want the functionality to be given as in (b) and the
+structure maps as in (c), which may be expressed by the following to relations
+\begin{equation}
+\begin{split}
+X^\flat(V,W) &= \mu_{V, W} \circ (j_{V,W} \wedge \id_{X^\flat(W)}) : 
+\L(V, W)_+ \wedge X^\flat (V) \to X^\flat(W),
+\\
+\sigma_{V,W} &= \mu_{W,V\oplus W} \circ (i_V \wedge \id_{X^\flat(W)}) :
+S^V \wedge X^\flat (W) \to X^\flat(V \oplus W).
+\end{split}
+\end{equation}
+Where 
+\begin{align*}
+j_{V,W} : \L(U,W)_+ \into \O(V,W); & \phi \mapsto (0,\phi), \\
+i_V : S^V \into \O(W, V\oplus W); & v \mapsto ((v,0), (0,\id_W)).
+\end{align*}
+
+
+We consider $(w, \xi) \in \Xi(V,W)$, $[\phi \wedge x] \in X^\flat(V)$. Let 
+\[ W' = W/\im(\xi), \: m' = \dim(W') \q{\tand} \psi' : \R^{m'} \to W'. \]
+
+Then we define $\mu$ as follows 
+\[ \mu((w,\xi) \wedge [\phi \wedge \x]) :=
+[ \psi \oplus (\xi \circ \phi) \wedge \sigma^m(\psi^{-1} \wedge x)] 
+\]
+
+This is clearly continues and extends continuously to $\O(V,W)$, since both
+$\psi^{-1}$ and $\sigma^m$ extends continuously to the one point
+compactification.
+
+We check that this satisfy the associativity 
+\begin{align*}
+
+\end{align*}
+
+
+
+\item[(e)]
+\item[(f)]
+
+
+\end{enumerate}
+\end{exercise}
+
+\end{document}

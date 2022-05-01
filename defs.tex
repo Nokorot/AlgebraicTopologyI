@@ -3,8 +3,8 @@
 %% NOTE: The align* environment doesn't work for some reason.
 % this is a temporary fix
 \renewenvironment{align*}{
-\[ \arraycolsep=1pt \def\arraystretch{1.5}
-\begin{array}{rclrcl}
+\[ \arraycolsep=2pt \def\arraystretch{1.5}
+\begin{array}{rl}
 }{ \end{array} \] }
 
 
@@ -169,8 +169,8 @@
 \DeclareMathOperator{\Ker}   {Ker}
 \DeclareMathOperator{\im}    {Im}
 
-\let \span \undefined
-\DeclareMathOperator{\span}  {span}
+% \let \span \undefined
+\DeclareMathOperator{\tspan}  {span}
 
 % Standard sets
 \def \N {\mathbb{N}}
