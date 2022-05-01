@@ -4,12 +4,6 @@
 \def \simto{\xrightarrow{\sim}}
 \def \O{\mathcal{O}}
 
-
-\newenvironment{map*}{
-\[ \arraycolsep=2pt \def\arraystretch{1.5}
-\begin{array}{rccccc}
-}{ \end{array} \] }
-
 \begin{document}
 \mmaketitle
 
@@ -193,12 +187,12 @@ Conversly we define
 \[ \rho : Y \to (UY)^\flat \]
 for an inner product space $W$, by
 
-% \begin{align*}
-% \rho_W : (UY)^\flat(W) &= (\L(\R^n,W)_+ \wedge Y(\R^n))/\sim \q{\to} Y(W) \\
-% \text{$[$} \phi \wedge x] &\mapsto (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge
-% x) \\
-% &= (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge x) 
-% \end{align*}
+\begin{align*}
+\rho_W : (UY)^\flat(W) &= (\L(\R^n,W)_+ \wedge Y(\R^n))/\sim \q{\to} Y(W) \\
+\text{$[$} \phi \wedge x] &\mapsto (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge
+x) \\
+&= (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge x) 
+\end{align*}
 
 % 
 % \begin{align*}
@@ -214,3 +208,5 @@ for an inner product space $W$, by
 
 \end{enumerate}
 \end{exercise}
+
+\end{document}
