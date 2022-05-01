@@ -4,6 +4,12 @@
 \def \simto{\xrightarrow{\sim}}
 \def \O{\mathcal{O}}
 
+
+\newenvironment{map*}{
+\[ \arraycolsep=2pt \def\arraystretch{1.5}
+\begin{array}{rccccc}
+}{ \end{array} \] }
+
 \begin{document}
 \mmaketitle
 
@@ -32,6 +38,8 @@ Then, for $x \in X^n$ and $\phi \in \L(\R^n, W)_+$
 = x
 \end{align*}
 Clearly both $q$ and $\eta$ are continues, proving the clime.
+
+Furthermore, we note that both maps are base point preserving.
 
 \item[(b)]
 We denote the map in the exercise by $\mu$ and
@@ -105,7 +113,7 @@ S^V \wedge X^\flat (W) \to X^\flat(V \oplus W).
 \end{equation}
 Where 
 \begin{align*}
-j_{V,W} : \L(U,W)_+ \into \O(V,W); & \phi \mapsto (0,\phi), \\
+j_{V,W} : \L(V,W)_+ \into \O(V,W); & \phi \mapsto (0,\phi), \\
 i_V : S^V \into \O(W, V\oplus W); & v \mapsto ((v,0), (0,\id_W)).
 \end{align*}
 
@@ -165,13 +173,45 @@ For this to be functional we need the following diagram
 \end{tikzcd} \]
 to commute. But this is clear from the definition.
 
-
-
-
 \item[(f)]
+For $n \ge 0$, we have 
+\[ (UX^\flat)_n = X^\flat(\R^n) = (\L(\R^n,\R^n)_+  \wedge X_n). \]
+We know from part (a), that this space is (based)homomorphic to $X_n$, by the
+map $\eta$, which is clearly natural, since any morhphism is $O(n)$-equivariant.
+% The maps $q$ and $\eta$ are also clearly natual
+We also need to check that the structure maps match up. We have
+
+\[ \til\sigma_n = \sigma_{\R,\R^n} : S^1 \wedge (UX^\flat)_n \to (U
+X^\flat)_{n+1} \]
+given by
+\begin{align*}
+v \wedge [\phi \wedge x] &\mapsto [(\psi \oplus \phi) \wedge
+\sigma^1(\psi^{-1}(\lambda) \wedge x)] \\
+& \quad = \sigma_n(\lambda \wedge x)
+\end{align*}
+
+Conversly we define 
+\[ \rho : Y \to (UY)^\flat \]
+for an inner product space $W$, by
+
+% \begin{align*}
+% \rho_W : (UY)^\flat(W) &= (\L(\R^n,W)_+ \wedge Y(\R^n))/\sim \q{\to} Y(W) \\
+% \text{$[$} \phi \wedge x] &\mapsto (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge
+% x) \\
+% &= (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge x) 
+% \end{align*}
+
+% 
+% \begin{align*}
+% \rho_W : (UY)^\flat(W) &= (\L(\R^n,W)_+ \wedge Y(\R^n))/\sim \q{\to} Y(W) \\
+% \text{$[$} \phi \wedge x] &\mapsto (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge
+% x) \\
+% &= (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge x) 
+% \end{align*}
+
+
+
 
 
 \end{enumerate}
 \end{exercise}
-
-\end{document}
