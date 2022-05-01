@@ -111,10 +111,10 @@ i_V : S^V \into \O(W, V\oplus W); & v \mapsto ((v,0), (0,\id_W)).
 
 
 We consider $(w, \xi) \in \Xi(V,W)$, $[\phi \wedge x] \in X^\flat(V)$. Let 
-\[ W' = W/\im(\xi), \: m' = \dim(W') \q{\tand} \psi' : \R^{m'} \to W'. \]
+\[ W' = W/\im(\xi), \: m = \dim(W') \q{\tand} \psi : \R^{m'} \to W'. \]
 
 Then we define $\mu$ as follows 
-\[ \mu((w,\xi) \wedge [\phi \wedge \x]) :=
+\[ \mu((w,\xi) \wedge [\phi \wedge x]) :=
 [ \psi \oplus (\xi \circ \phi) \wedge \sigma^m(\psi^{-1} \wedge x)] 
 \]
 
@@ -122,14 +122,52 @@ This is clearly continues and extends continuously to $\O(V,W)$, since both
 $\psi^{-1}$ and $\sigma^m$ extends continuously to the one point
 compactification.
 
-We check that this satisfy the associativity 
-\begin{align*}
 
+
+We check that this satisfy the associativity: 
+Let $(w, \xi) \in \Xi(V,W)$, $(v, \zeta) \in \Xi(U,V)$, $[\phi \wedge x] \in
+X^\flat(U)$. Let $W'$, $m$ and $\psi$ as above and 
+\[ V' = V/\im(\zeta),\:\: n = \dim(V'),\:\: \psi' : \R^n \to V', \] 
+\[ W'' = W/\im(\xi \circ \zeta),\:\: m' = \dim(W'') = m + n,\:\: \psi'' = \psi
+\oplus \psi' : \R^{m'} \to W''. \] 
+
+Then we have
+\begin{align*}
+P_1 = \mu(\circ \wedge \id)((w,\xi) & \wedge (v, \zeta) \wedge [\phi \wedge x]) \\
+&= [(\psi'' \oplus (\xi\circ \zeta \circ \phi)) 
+\wedge \sigma^{m'}(\psi''^{-1}(w + \zeta(v))\wedge x) ]
 \end{align*}
 
 
+\begin{align*}
+P_2 = \mu (\id \wedge \mu)((w,\xi)& \wedge (v, \zeta) \wedge [\phi \wedge x]) \\
+&= [ \psi \oplus (\xi \circ (\psi' \oplus (\zeta \circ \phi)))
+\wedge 
+\underbrace{\sigma^m(\psi^{-1}(w) \wedge \sigma^n(\psi'^{-1}(v) \wedge x)
+)}_{= \sigma^{m+n}(\psi^{-1}(w) \wedge \psi'^{-1}(v) \wedge x)} ]
+\end{align*}
+
+
+This is not DONE
 
 \item[(e)]
+Let $f : X \to Y$ be a morphism of coordinatized orthogonal spectra, then we
+define $f^\flat : X^\flat \to Y^\flat$, for $[\phi \wedge x] \in X^\flat(V)$, by
+\[ f^\flat_V([\phi \wedge x]) := [\phi \wedge f_n(x)], \]
+where $n = \dim(V)$. This is well-defined, since $f_n$ is $O(n)$-equivariant.
+
+For this to be functional we need the following diagram
+\[ \begin{tikzcd}
+\O(V,W) \wedge X^\flat(V) \ar[r, "\mu"] \ar[d, "\id \wedge f^\flat_V"]
+& X^\flat(W) \ar[d, "\id \wedge f^\flat_W"] \\
+\O(V,W) \wedge Y^\flat(V) \ar[r, "\mu"]
+& Y^\flat(W)
+\end{tikzcd} \]
+to commute. But this is clear from the definition.
+
+
+
+
 \item[(f)]
 
 
