@@ -7,7 +7,19 @@
 \begin{document}
 \mmaketitle
 
-\begin{exercise}[1]\ 
+\begin{exercise}[1](Incomplete)\ 
+
+We distinguish the cases $\det(A)=\pm1$.
+
+\textit{Case 1}: $\det(A)=1$.
+
+In this case it is easy to construct explicitly a homotopy $H:S^{n+k}\times[0,1]\to X_n$ from $X(A)\circ f$ to $f$. It suffices to consider a path $\gamma:[0,1]\to O(n)$ from $A$ to the identity (it is a well known easy result that $O(n)$ has two path components corresponding to matrices of determinant $1$ and $-1$) and set $H$ as the composite
+\[S^{n+k}\times[0,1]\xto{f\times\gamma}X_n\times O(n)\xto{\tau}O(n)\times X_n\to X_n\]
+where the last arrow is the group action of $O(n)$ on $X_n$. It is then easy to verify that $H$ is indeed a based homotopy between $X(A)\circ f$ and $f$.
+
+\textit{Case 2:} $\det(A)=-1$.
+
+This case is more delicate, as the two maps will be identified at some point in the colimit diagram for $\pi_k(X)$. We omit it for lack of time.
 \end{exercise}
 
 \begin{exercise}[2]\ 
@@ -148,8 +160,7 @@ P_2 = \mu (\id \wedge \mu)((w,\xi)& \wedge (v, \zeta) \wedge [\phi \wedge x]) \\
 )}_{= \sigma^{m+n}(\psi^{-1}(w) \wedge \psi'^{-1}(v) \wedge x)} ]
 \end{align*}
 
-
-This is not DONE
+This is not done
 
 \item[(e)]
 Let $f : X \to Y$ be a morphism of coordinatized orthogonal spectra, then we
@@ -183,7 +194,7 @@ given by
 % & \quad = \sigma_n(\lambda \wedge x)
 % \end{align*}
 
-Conversly we define 
+Converesly we define 
 \[ \rho : Y \to (UY)^\flat \]
 for an inner product space $W$, by
 
@@ -201,10 +212,6 @@ x) \\
 % x) \\
 % &= (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge x) 
 % \end{align*}
-
-
-
-
 
 \end{enumerate}
 \end{exercise}
