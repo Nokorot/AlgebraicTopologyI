@@ -123,8 +123,22 @@ j_{V,W} : \L(V,W)_+ \into \O(V,W); & \phi \mapsto (0,\phi), \\
 i_V : S^V \into \O(W, V\oplus W); & v \mapsto ((v,0), (0,\id_W)).
 \end{align*}
 
+Let $\xi \in \L(V, W)$, $v \in V$ and $[\phi \wedge x] \in X^\flat(V)$,
+then our relations are given by
+\begin{align*}
+\mu_{V,W}((0,\xi) \wedge [\phi \wedge x]) &= [(\xi \circ \phi) \wedge x], \quad\tand \\
+\mu_{W,V\oplus W}((v, 0),(0,\id_W) \wedge [\phi \wedge x]) 
+&= [(\psi \oplus \phi) \wedge \sigma^n(\psi^{-1}(v) \wedge x)]
+\end{align*}
 
-We consider $(w, \xi) \in \Xi(V,W)$, $[\phi \wedge x] \in X^\flat(V)$. Let 
+We observe that the second relation defines $\mu$ for canonical isometric
+embedding into the direct sum and the first relation defines $\mu$ for any
+isomorphism. So, since any isometric embedding $\xi$ can be written as the
+compost of the isomorphism $(\pr_{\im{\xi}} \circ \xi)$ and the embedding 
+($\im{\xi} \into \im{\xi} \oplus W / \im{\xi}$), this relations defines $\mu$
+uniquely.
+
+Consider $(w, \xi) \in \Xi(V,W)$, $[\phi \wedge x] \in X^\flat(V)$. Let 
 \[ W' = W/\im(\xi), \: m = \dim(W') \q{\tand} \psi : \R^{m'} \to W'. \]
 
 Then we define $\mu$ as follows 
@@ -132,10 +146,11 @@ Then we define $\mu$ as follows
 [ \psi \oplus (\xi \circ \phi) \wedge \sigma^m(\psi^{-1} \wedge x)] 
 \]
 
+% [ The fact that this is the unique solution, follows from the fact that ]
+
 This is clearly continues and extends continuously to $\O(V,W)$, since both
 $\psi^{-1}$ and $\sigma^m$ extends continuously to the one point
 compactification.
-
 
 
 We check that this satisfy the associativity: 
@@ -154,13 +169,18 @@ P_1 = \mu(\circ \wedge \id)((w,\xi) & \wedge (v, \zeta) \wedge [\phi \wedge x]) 
 
 \begin{align*}
 P_2 = \mu (\id \wedge \mu)((w,\xi)& \wedge (v, \zeta) \wedge [\phi \wedge x]) \\
-&= [ \psi \oplus (\xi \circ (\psi' \oplus (\zeta \circ \phi)))
+&= [ \underbrace{\psi \oplus (\xi \circ (\psi' \oplus (\zeta \circ \phi)))}
+_{=(\psi'' \oplus (\xi\circ \zeta \circ \phi))}
 \wedge 
 \underbrace{\sigma^m(\psi^{-1}(w) \wedge \sigma^n(\psi'^{-1}(v) \wedge x)
 )}_{= \sigma^{m+n}(\psi^{-1}(w) \wedge \psi'^{-1}(v) \wedge x)} ]
 \end{align*}
 
+<<<<<<< HEAD
 This is not done
+=======
+
+>>>>>>> b883110 (Tue May  3 14:25:06 CEST 2022)
 
 \item[(e)]
 Let $f : X \to Y$ be a morphism of coordinatized orthogonal spectra, then we
@@ -194,25 +214,61 @@ given by
 % & \quad = \sigma_n(\lambda \wedge x)
 % \end{align*}
 
+<<<<<<< HEAD
 Converesly we define 
 \[ \rho : Y \to (UY)^\flat \]
+=======
+Conversely we define 
+\[ \rho : Y \to (UY)^\flat \qq\tand \bar \rho : Y \to (UY)^\flat \]
+>>>>>>> b883110 (Tue May  3 14:25:06 CEST 2022)
 for an inner product space $W$, by
 
 \begin{align*}
-\rho_W : (UY)^\flat(W) &= (\L(\R^n,W)_+ \wedge Y(\R^n))/\sim \q{\to} Y(W) \\
-\text{$[$} \phi \wedge x] &\mapsto (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge
-x) \\
-&= (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge x) 
-\end{align*}
+\rho_W : Y(W) &\to (UY)^\flat(W) = (\L(\R^n,W)_+ \wedge Y(\R^n))/\sim \\
+x &\mapsto [ \psi \wedge Y(W,\R^n)(j(\psi^{-1}) \wedge x)  ] \\
+&= [ \psi \wedge Y(W,\R^n)((0, \psi^{-1}) \wedge x) ]
 
-% 
-% \begin{align*}
-% \rho_W : (UY)^\flat(W) &= (\L(\R^n,W)_+ \wedge Y(\R^n))/\sim \q{\to} Y(W) \\
 % \text{$[$} \phi \wedge x] &\mapsto (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge
 % x) \\
 % &= (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge x) 
-% \end{align*}
+\end{align*}
 
+<<<<<<< HEAD
+=======
+\begin{align*}
+\bar\rho_W : (UY)^\flat(W) \q{&\to} Y(W) \\
+\text{$[$} \phi \wedge x] &\mapsto (Y(\R^n,w) \circ (j_{\R^n,W} \wedge \id))(\phi \wedge
+x) \\
+&= Y(\R^n,w)((0,\phi) \wedge x) 
+\end{align*}
+
+Then 
+\begin{align*}
+(\rho_W \circ \bar \rho_W) ( [\phi \wedge x]) 
+&= [ \psi \wedge Y(W,\R^n)((0, \psi^{-1}) \wedge Y(\R^n,w)((0,\phi) \wedge x))
+]
+\\
+\text{(Associativity: )} \qquad
+&= [ \psi \wedge ( Y(W,W)((0, \psi^{-1} \circ \phi) \wedge x)) ] \\
+\text{($O(n)$ action: )} \qquad
+&= [ \psi \wedge  (\psi^{-1} \circ \phi).x)) ] \\
+&= [ \phi \wedge x ], \\  
+\end{align*}
+and
+\begin{align*}
+(\bar\rho_W \circ \rho_W) (x) 
+&= Y(\R^n,w)\Big((0,\psi) \wedge Y(W,\R^n)\left((0, \psi^{-1}) \wedge
+x\right)\Big) \\
+\text{(Associativity: )} \qquad
+&= Y(\R^n,\R^n)\left((0,\psi \circ \psi^{-1}) \wedge x\right) \\
+\text{($O(n)$ action: )} \qquad
+&= x
+\end{align*}
+
+I'm assuming the structure maps also works our :D
+
+
+>>>>>>> b883110 (Tue May  3 14:25:06 CEST 2022)
 \end{enumerate}
 \end{exercise}
 
