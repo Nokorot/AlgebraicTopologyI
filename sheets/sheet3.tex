@@ -7,15 +7,47 @@
 \mmaketitle
 
 \begin{exercise}[1]\ 
+\begin{enumerate}
+\item[(i)]
+
+\item[(ii)]
+Let $V$ be an inner product space. Then $\O(0, V) = \Xi(0,V)_\infty \cong
+V_\infty = S^V$,
+since there is only one embedding of $0$ into $V$ and every element in $v$ is
+orthogonal to $\{0\}$. So the two spectra are clearly objectives isomorphic and
+the isomorphism is also clearly natural, so we get an isomorphism of orthogonal
+spectra.
+\end{enumerate}
+
 \end{exercise}
 
 \begin{exercise}[2]\ 
+\begin{enumerate}
+\item[(i)]
+We need to check that 
+\[ \lambda_\npi \circ (\sigma_n \wedge S^1) = (\sigma_\npi \wedge S^1) \circ
+(S^1 \wedge \lambda_n). \]
+Consider $v \wedge x \wedge w \in S^1 \wedge X_n \wedge S^1$, then
+\begin{align*}
+(\sigma_\npi \circ (\sigma^1 \wedge \lambda_n))(v \wedge x \wedge w) 
+&= \sigma_\npi\Big(v \wedge \big\{ (n+1,...,2,1)\cdot\sigma_n(w \wedge x)\big\}\Big) \\
+&= (n+2,...,3,2)\cdot\sigma_\npi(v \wedge \sigma_n(w\wedge x))) \\
+&= (n+2,...,3,2) \cdot \sigma^2( (v \wedge w) \wedge x))) \\
+&= (n+2,...,3,2) \cdot \sigma^2( (2,1) (w \wedge v) \wedge x))) \\
+&= (n+2,...,3,2)(2,1) \cdot \sigma^2( (w \wedge v) \wedge x))) \\
+&= (n+2,...,2,1) \cdot \sigma_\npi( w \wedge \sigma_n(v \wedge x)) \\
+&= \lambda_\npi( \sigma_n(v \wedge x) \wedge w) \\
+&= (\lambda_\npi \circ (\sigma_n \wedge S^1))(v \wedge x \wedge w).
+\end{align*}
+
+\item[(ii)]
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}[3]\ 
-Let $f:S^{n+k} \to X_n$ be a representative of an element in $\pi_k(X)$.
+Let $f : S^{n+k} \to X_n$ be a representative of an element in $\pi_k(X)$.
 Since $\Sigma_m$ acts trivially on $X_m$ for infinitely many $m$, we may assume
-wlog, that for $\Sigma_{n+2}$ acts trivially on $X_{n+2}$. 
+wlog., that for $\Sigma_{n+2}$ acts trivially on $X_{n+2}$. 
 % We have that 
 So by $\Sigma_2 \times \Sigma_n$-equivariance of $\sigma^2$, the map
 \[ \sigma^2 \circ (S^2 \smash f) : S^2 \smash S^n \to X_{2+n} \]
