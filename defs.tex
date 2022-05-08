@@ -86,6 +86,13 @@
 \stackon[-6.9pt]{#1}{\tmpbox}%
 }
 
+\newsavebox{\pullback}
+\sbox\pullback{%
+\begin{tikzpicture}%
+\draw (0,0) -- (1ex,0ex);%
+\draw (1ex,0ex) -- (1ex,1ex);%
+\end{tikzpicture}}
+
 \makeatletter
 \newsavebox{\@Wedge}
 \sbox\@Wedge{%
