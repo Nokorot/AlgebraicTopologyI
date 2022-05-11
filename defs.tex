@@ -60,6 +60,15 @@
 \DeclareMathOperator{\tel}{tel}
 \DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\ev}{ev}
+\newcommand{\Or}{\boldsymbol{\mathrm{O}}}
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\T}{\mathcal{T}}
+\let\dumbphi\phi
+\let\phi\varphi
+\let\dumbepsilon\epsilon
+\let\epsilon\varepsilon
+\renewcommand{\varphi}{\dumbphi}
+\renewcommand{\varepsilon}{\dumbepsilon}
 
 
 % Tor's stuff
@@ -170,7 +179,8 @@
 \DeclareMathOperator{\U}     {U}
 \DeclareMathOperator{\O}     {O}
 \DeclareMathOperator{\SO}    {SO}
-\DeclareMathOperator{\Sp}    {Sp}
+% I think categories should be \mathrm and not mathoperators, otherwise there are strange things happening with the formatting (and also it tells me I'm missing a '{' which annoys me)
+%\DeclareMathOperator{\Sp}    {Sp}
 \DeclareMathOperator{\Gr}    {Gr}
 
 % Maths Operators

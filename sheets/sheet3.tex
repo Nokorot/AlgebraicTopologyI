@@ -9,19 +9,34 @@
 \mmaketitle
 
 \begin{exercise}[1]\ 
-\begin{enumerate}
-\item[(i)]
 
-\item[(ii)]
-Let $V$ be an inner product space. Then $\O(0, V) = \Xi(0,V)_\infty \cong
-V_\infty = S^V$,
-since there is only one embedding of $0$ into $V$ and every element in $v$ is
-orthogonal to $\{0\}$. So the two spectra are clearly objectives isomorphic and
-the isomorphism is also clearly natural, so we get an isomorphism of orthogonal
+(i) This is just the Yoneda lemma in an enriched setting. For an orthogonal spectrum $X$, we define
+\[\alpha_X:\Hom_\Sp(\Or(V,-),X)\to X(V)\]
+by $f\mapsto f_V(0, \id_V)$.
+
+We can produce an inverse to $\alpha_X$,
+\[\beta_X:X(V)\to\Hom_\Sp(\Or(V,-),X),\]
+by defining for $x\in X(V)$ a natural transformation given by the components
+\begin{align*}
+    \beta_X(x)_W:\Or(V,W)&\to X(W)\\
+    (w,\phi)&\mapsto X(w,\phi)(x).
+\end{align*}
+
+We have that $\beta_X(x)_W$ is continuous and based as it is the composite
+\begin{align*}
+\Or(V,W)&\to\Or(V,W)\smsh X(V)\to X(W)\\
+(w,\phi)&\mapsto(w,\phi)\smsh x
+\end{align*}
+where the second map is the one given by functoriality of $X$ and adjunction, as usual.
+
+It remains to check that $\beta$ is a well-defined morphism of orthogonal spectra, i.e. that the associated naturality square commutes, that the natural transformations we defined (i.e. their components) are inverse to each other and that they are natural in $X$ (they are also natural in $V$). As these checks barely differ from the ones one does to prove the Yoneda lemma (the only difference being that sometimes one has to swap a $\circ$ for a $\smsh$, if I'm not mistaken), I will omit them.
+
+(ii) Let $V$ be an inner product space. Then clearly \[\Or(0,V)=\xi(0,V)\cup\cb{\infty}\cong
+V\cup\cb{\infty} = S^V,\]
+as there is only one embedding of $0$ into $V$ and every element in $V$ is
+orthogonal to $\{0\}$ (in particular we can take the homeomorphism $\alpha_V:\Or(0,V)\to S^V$ which extends the homeomorphism $\epsilon(0,V)\to V,\ (v,\phi)\mapsto v$). So we can define a morphism $f$ objectwise for $V\in\Or$ by $f_V=\alpha_V\smsh K$, and this is clearly natural (this is really just a matter of unravelling definitions) and the components are (based) homeomorphisms, hence we get an isomorphism of orthogonal
 spectra.
-\end{enumerate}
-
-\end{exercise}
+\end{exercise}\newpage
 
 \begin{exercise}[2]\ 
 \begin{enumerate}
@@ -47,6 +62,7 @@ Consider $v \wedge x \wedge w \in S^1 \wedge X_n \wedge S^1$, then
 \end{exercise}
 
 \begin{exercise}[3]\ 
+
 Let $f : S^{n+k} \to X_n$ be a representative of an element in $\pi_k(X)$.
 Since $\Sigma_m$ acts trivially on $X_m$ for infinitely many $m$, we may assume
 wlog., that for $\Sigma_{n+2}$ acts trivially on $X_{n+2}$. 
