@@ -4,7 +4,7 @@
 \def \S{\mathbb{S}}
 \def \O{\mathcal{O}}
 
-\def \Sp{\textit{Sp}}
+%\def \Sp{\textit{Sp}}
 \def \SMod{\S\text{-}\hspace{-.15em}\Mod}
 
 \def \smsh {\wedge}
@@ -15,6 +15,7 @@
 \mmaketitle
 
 \begin{exercise}[1]\ 
+
 Let $\S^{\ge i}$ be the spectrum 
 \[ (\S^{\ge i})_n = \pwf{S^n &\tif n \ge i \\ * &\tif n < i} \]
 with the obvious structure maps. 
@@ -24,7 +25,7 @@ Then the natural map
 is not surjective.
 
 Any element on the left hand side is given by a representative 
-$f : S^n \to \prod_{i\in\N} \S^{\ge i}$ for some $n in \N$.
+$f : S^n \to \prod_{i\in\N} \S^{\ge i}$ for some $n \in \N$.
 The element $[f]$ is mapped to $\prod_{i\in\N} [\pr_i \circ f]$. So every
 element in the image of the map may be written as a product $[\prod_{i\in\N}
 f_i : S^n \to S^i]$, for some $n\in \N$ independent of $i$.
@@ -35,12 +36,22 @@ all $i > n$, may not be represented by a map $f : S^n \to S^i$, as $\pi_n(S^i)
 = 0$ for all $i > n$.
 \end{exercise}
 
+\begin{exercise}[2]\ 
+
+Since colimits commute with colimits we have that
+\begin{align*}
+    \colimit_n\pi_{k+n}^s(X_n)&=\colimit_n\colimit_j\pi_{k+n+j}(S^j\smsh X_n)\\
+    &\cong\colimit_j\colimit_n\pi_{k+n+j}(S^j\smsh X_n)=\colimit_j\pi_k(S^j\smsh X)
+\end{align*}
+where the colimit is taken over the maps $(S^1\smsh-)_*$ which are isomorphism, hence the claim.
+\end{exercise}
 
 \begin{exercise}[4]\ 
+
 Let $F: \Sp \to \SMod$ be the functor defined by sending 
 $X \in \Sp$, to the $\S$-module, with underlying spectrum $X$ and action map 
 $\alpha_{VW} = \sigma_{VW}$ and sending every morphism of spectra to is self.
-Then $F$ defines an inverse of the forgetfull functor. 
+Then $F$ defines an inverse of the forgetful functor. 
 
 Firstly, we need to check that the structure maps satisfy associativity and
 unitality. Associativity follows immediately from the associativity from the
@@ -61,7 +72,7 @@ definition of a morphism of spectra. So a morphism of spectra is already a
 morphism of $\S$-modules. It follows immediately that  $F$ is functorial. 
 
 Finally, it is immediately clear that $F$ defines a right inverse of the
-forgetfull functor. To check that it is also a left inverse consider $M \in
+forgetful functor. To check that it is also a left inverse consider $M \in
 \SMod$. Then by unitality $\alpha_{VW} \circ (\iota_V \smsh M(W)) =
 \sigma_{VW}$, but $\iota_V = \id : S^V \to \S^V$, so $\alpha_{VW} =
 \sigma_{VW}$ and thus $M = F(U(M))$.
