@@ -1,9 +1,122 @@
 \sheet 5
 
+
+\DeclareMathOperator\map{map}
+
 \begin{document}
 \mmaketitle
 
 \begin{exercise}[1]\ 
 \end{exercise}
+
+\begin{exercise}[2]\ 
+We have $RM := R \smsh M$.
+
+We define 
+\begin{align*}
+\Psi : \pi_k(R)[M] &\to \pi_k(RM) \\
+\sum_i [f_i] \cdot m_i &\mapsto \sum_i [f_i \smsh m_i]
+\end{align*}
+where the sum on the left is the formal sum in the definition of the
+monoid ring and the sum in the right is the sum in $\pi_k(RM)$ as an abelian
+group.
+
+It is clear from the definition that this defines a homomorphism of abelian
+groups and, by prop. 3.12 in the notes, we have that 
+\[ \pi_k(RM_k) = \pi_k(\vee_{m\in M} R_k) \cong \oplus_{m\in M} \pi_k(R_k), \]
+and thus it is clear that $\Psi$ is also bijective. 
+So all that remains it to show that it preserves the graded multiplication.
+
+Let $\hat f = \sum_{i\in I} [f_i] \cdot m_i \in \pi_k(R)[M]$ and $\hat g =
+\sum_{j\in J} [g_j] \cdot m_j \in \pi_l(R)[M]$. ($I$ and $J$ are finite indexing
+sets. So in particular, we may wlog assume that $n$ is independent of $i$.)
+
+Then 
+\begin{equation}
+\label{eq:5.2.a}
+\Psi(\hat f) \cdot \Psi(\hat g) = (-1)^{nk} [\mu_{m,n} \circ (\til f
+\smsh \til g)], 
+\end{equation}
+where $\til f: S^{m+k} \to R_m \smsh M_+$ and $\til g: S^{n+l} \to R_n \smsh
+M_+$, such that 
+\begin{equation*}
+[\til f] = \sum_i [f_i \smsh m_i] = \Psi(\hat f) \q\tand 
+[\til g] = \Psi(\hat g).
+\end{equation*}
+We may wlog assume that $\til f = (\vee_i f_i) \circ \eta^{|I|}$, where $\eta^{|I|}$ is a
+$|I|$-fold pinch map and similarly for $g$.
+
+On the other hand we have 
+\[ \Psi\left(\hat f \cdot \hat g\right) = \sum_{i,j} (-1)^{nk} [\mu_{m,n} \circ (f_i \smsh
+g_j) \smsh (m_i \cdot m_j)]. \] 
+Since the addition on the right hand side is defined by pre-composition with a
+$|I|+|J|$-fold pinch map, it is clear that this is equal to \pref{eq:5.2.a}.
+Which concludes the proof.
+\end{exercise}
+
+
+\begin{exercise}[4]\ 
+Let $f : S^{n+k} \to M_d(R)$. 
+We have 
+\[ M_d(R) := \map_*(d_+, R \smsh d_+) \cong \prod_{i=1}^{d}
+\bigvee_{j=1}^{m} R. \] 
+So we have
+\[ f = \prod_{i=1}^m f_i \q{\text{for}} f_i : S^{n+k} \to R_n \smsh m_+ \cong \bigvee_{j=1}^{m} R.  \]
+
+Furthermore, by prop. 3.12 in the notes, we may write 
+\[ [f_i] = \sum_{j=1}^m [f_{i,j}] \q{\text{for some}} f_{i,j} : S^{n+k} \to R
+\smsh j \cong R. \]
+(Note that we might need to change/increase $n$, by this does not really make any
+difference.) 
+
+We define 
+\begin{align*}
+\Psi : \pi_k(M_d(R)) &\to M_m(\pi_k(R)) \\
+[f] &\mapsto ([f_{i,j}])_{i,j}
+\end{align*}
+
+Again it is clear by the construction that $\Psi$ is an isomorphism of abelian
+groups, so what we need to check, is that the graded multiplication is
+preserved.
+
+Let $f : S^{n+k} \to \map_*(d_+, \R_n\smsh d_+)$ and
+$g : S^{m+l} \to \map_*(d_+, \R_m\smsh d_+)$. Then 
+
+\begin{align*}
+\Psi([f])\cdot \Psi([g]) &= \left(
+\sum_{q=1}^d [f_{i,q}] \cdot [g_{q,j}] 
+\right)_{i,j} 
+= (-1)^{nk} \left(
+\sum_{q=1}^d [\mu_{n,m} \circ (f_{i,q} \smsh g_{q,j})] 
+\right)_{i,j}
+\end{align*}
+
+On the other hand we have 
+\begin{align*}
+[f] \cdot [g] &= (-1)^{nk} [\xi_{m,n} \circ (f \smsh g)]
+\end{align*}
+where $\xi_{m,n}$ is the multiplication defined on the matrix ring spectra, ie.
+\[ \xi_{m,n}; a\smsh b \mapsto \left(d_+ \xto{a} R_n \smsh d_+ \xto{\R_n \smsh m} R_n
+\smsh R_m \smsh d_+ \xto{\mu_{m,n}\smsh d_+} R_{n+m} \smsh d_+ \right), \]
+for $a \in \map_*(d_+, R^n \smsh d_+)$ and $b \in \map_*(d_+,R_m\smsh d_+)$.
+
+It follows that 
+\[ \left(\xi_{m,n} \circ (f\smsh g) \right)_i = \xi_{m,n} \circ (f_i \circ g), \]
+since the $i$'th component is by pre-composing with the inclusion $\{i\} \into d_+$.
+
+Furthermore, we have that 
+\[ \left(\xi_{m,n} \circ (f\smsh g)\right)_{i,j} = \mu_{m,n} \circ
+(\bigvee_{q=1}^d (f_{i,q}\smsh g_{q,j})) \circ \eta^d.  \]
+This is less clear, so let's take it in a couple steps. 
+Firstly we get $i,j$'th component by pre-composing with $\{i\} \into d_+$ (as
+above) and post-composing with the projection $d_+ \to \{j\}$. 
+The part with the $d$-fold pinch map followed by acting on each of the
+components, comes from the isomorphism from prop. 3.12.
+
+With that it is clear that $\Psi([f]\cdot [g]) = \Psi([f]) \cdot \Psi([g])$. 
+% And we are done
+\end{exercise}
+
+
 
 \end{document}
