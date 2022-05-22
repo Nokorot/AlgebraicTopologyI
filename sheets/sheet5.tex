@@ -1,7 +1,8 @@
 \sheet 5
 
-
 \DeclareMathOperator\map{map}
+\def\op{\text{op}}
+
 
 \begin{document}
 \mmaketitle
@@ -54,6 +55,35 @@ $|I|+|J|$-fold pinch map, it is clear that this is equal to \pref{eq:5.2.a}.
 Which concludes the proof.
 \end{exercise}
 
+\begin{exercise}[3]\ 
+It is immediately clear that $\pi_*(R^\op) = (\pi_*(R))^\op$ considered as
+abilian groups, so all we need to check is that the multiplication is the same. 
+
+Let $f: S^{m+k} \to R_n$ and $g: S^{n+l}\to R_m$. Then the product of $[f]$ and
+$[g]$ in $\pi_*(R^\op)$ is given by
+\[ [f]\cdot^\op [g] := (-1)^{nk}[\mu^\op_{m,n} \circ (f\smsh g)]. \]
+We consider the following diagram, where top row defines $[f]\cdot^\op [g]$. 
+\[ \begin{tikzcd}
+S^{m+k+n+l} \ar[r,"f\smsh g"] \ar[d, "\chi_{m+k,n+l}"] 
+& R_m\smsh R_n \ar[r, "\mu^\op_{m,n}"] \ar[d, "\tau"] 
+& R_{m+n} \ar[d, "\tau_*"] \\
+S^{n+l+m+k} \ar[r, "g\smsh f"] &
+R_n\smsh R_m \ar[r, "\mu_{n,m}"] & R_{n+m}
+\end{tikzcd} \]
+where the vertical map are the obvious twisting maps. 
+It is clear that the left square commutes, and the right square commutes by the
+definition of $\mu^\op$. So we have 
+
+\begin{align*}
+[f]\cdot^\op [g] &:= (-1)^{nk}[\mu^\op_{m,n} \circ (f\smsh g)] \\
+&= (-1)^{nk}(-1)^{(m+k)(n+l)}(-1)^{mn} [\mu_{n,m}\circ (g\smsh f)] \\
+&= (-1)^{nk}(-1)^{(m+k)(n+l)}(-1)^{mn} (-1)^ml [g]\cdot[f] \\
+&= (-1)^{kl}[g]\cdot[f].
+\end{align*}
+
+
+\end{exercise}
+
 
 \begin{exercise}[4]\ 
 Let $f : S^{n+k} \to M_d(R)$. 
@@ -79,24 +109,24 @@ Again it is clear by the construction that $\Psi$ is an isomorphism of abelian
 groups, so what we need to check, is that the graded multiplication is
 preserved.
 
-Let $f : S^{n+k} \to \map_*(d_+, \R_n\smsh d_+)$ and
-$g : S^{m+l} \to \map_*(d_+, \R_m\smsh d_+)$. Then 
-
+Let $f : S^{m+k} \to \map_*(d_+, \R_m\smsh d_+)$ and
+$g : S^{n+l} \to \map_*(d_+, \R_n\smsh d_+)$. Then 
+%
 \begin{align*}
 \Psi([f])\cdot \Psi([g]) &= \left(
 \sum_{q=1}^d [f_{i,q}] \cdot [g_{q,j}] 
 \right)_{i,j} 
 = (-1)^{nk} \left(
-\sum_{q=1}^d [\mu_{n,m} \circ (f_{i,q} \smsh g_{q,j})] 
+\sum_{q=1}^d [\mu_{m,n} \circ (f_{i,q} \smsh g_{q,j})] 
 \right)_{i,j}
 \end{align*}
-
+%
 On the other hand we have 
 \begin{align*}
 [f] \cdot [g] &= (-1)^{nk} [\xi_{m,n} \circ (f \smsh g)]
 \end{align*}
 where $\xi_{m,n}$ is the multiplication defined on the matrix ring spectra, ie.
-\[ \xi_{m,n}; a\smsh b \mapsto \left(d_+ \xto{a} R_n \smsh d_+ \xto{\R_n \smsh m} R_n
+\[ \xi_{m,n};\quad a\smsh b \mapsto \left(d_+ \xto{a} R_n \smsh d_+ \xto{\R_n \smsh m} R_n
 \smsh R_m \smsh d_+ \xto{\mu_{m,n}\smsh d_+} R_{n+m} \smsh d_+ \right), \]
 for $a \in \map_*(d_+, R^n \smsh d_+)$ and $b \in \map_*(d_+,R_m\smsh d_+)$.
 
