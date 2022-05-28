@@ -1,0 +1,150 @@
+\sheet 6
+
+\def\Eps{\mathcal{E}}
+
+\begin{document}
+\mmaketitle
+
+\begin{exercise}[1]\ 
+
+\begin{enumerate}
+\item[(a)] 
+Given $\alpha: A \to X$, $\beta : C \to Y$ and $(p : X\to Y) \in \Eps$, such
+that the outer square in the following diagram commutes
+\[ \begin{tikzcd}
+A \ar[r,"\alpha"] \ar[d, "j \circ i"] 
+& X \ar[d, "p"] \\
+B \ar[r, "\beta"] \ar[ru, dotted, "\lambda"]
+& Y
+\end{tikzcd} \]
+We want to construct the map $\lambda: C \to X$, such that the hole diagram
+commutes.
+
+Since $i \in \Eps^\orth$ we have the lift $\lambda' : B \to X$, such that 
+\[ \begin{tikzcd}
+A \ar[r,"\alpha"] \ar[d, "i"] 
+& X \ar[d, "p"] \\
+B \ar[r, "\beta \circ j"] \ar[ru, dotted, "\lambda'"]
+& Y
+\end{tikzcd} \]
+commutes. Since also $j\in \Eps^\orth$ we have the lift $\lambda$, such that 
+\[ \begin{tikzcd}
+A \ar[r,"\lambda'"] \ar[d, "j"] 
+& X \ar[d, "p"] \\
+C \ar[r, "\beta"] \ar[ru, dotted, "\lambda"]
+& Y
+\end{tikzcd} \]
+commutes. It is clear that this lambda makes the original diagram commute.
+
+\item[(b)]
+We consider the following diagram.
+\[ \begin{tikzcd}
+A \ar[r, "\alpha"] \ar[rr, bend left, "\beta \circ \alpha"] 
+\ar[d, "i"] 
+& C \ar[r, "\beta"] \ar[d, "j"] 
+& X \ar[d, "p"]
+\\ 
+B \ar[r, "\gamma"] \ar[rr, bend right, "\delta \circ \gamma"] 
+& D \ar[r, "\delta"] 
+\ar[rru, dotted, "\lambda"]
+& Y
+\end{tikzcd} \]
+where $p\in \Eps$ and $\alpha, \beta, \gamma$ and $\delta$ are such that
+the solid diagram commutes. 
+We want to define $\labda : D \to X$ such that the
+full diagram commutes.
+
+Since $i \in \Eps^\orth$, we have $\lambda' : B \to X$, with respect to the
+outer square of the diagram. With that we consider the following diagram
+\[ \begin{tikzcd}
+A \ar[r,"\alpha"] \ar[d, "i"] 
+& C \ar[d, "j"] \ar[rdd, bend left, "\beta"] 
+& \\
+B \ar[r, "\gamma"] \ar[rrd, bend right, "\lambda'"] 
+& D \ar[rd, dotted, "\lambda"]
+& \\ 
+& & X
+\end{tikzcd} \]
+The solid part commutes by the previous diagram and we get a unique map 
+$\lambda : D \to X$, by the universal property of the push out making the full
+diagram commute.
+
+It is clear that this is the map we want.
+\item[(c)]
+Let $p\in \Eps$, $\alpha: C \to X$ and $\beta: D \to Y$, such that the solid
+part of the following diagram commutes.
+\[ \begin{tikzcd}
+C \ar[r,"\alpa"] \ar[d, "j"] 
+& X \ar[d, "p"] \\
+D \ar[r, "\beta"] \ar[ru, dotted, "\lambda"]
+& Y
+\end{tikzcd} \]
+We want to define $\lambda$ such that the full diagram commutes.
+
+We consider the following diagram
+\[ \begin{tikzcd}
+C \ar[r, "s"] \ar[rr, bend left, "\id"] \ar[d, "j"]
+& A \ar[r, "r"] \ar[d, "i"] 
+& C \ar[r, "\alpha"] \ar[d, "j"]
+& X \ar[d, "p"] 
+\\
+D \ar[r, "t"] \ar[rr, bend right, "\id"] 
+& B \ar[r, "u"] \ar[rru, dotted, "\lambda'"] 
+& D \ar[r, "\beta"]
+& Y
+\end{tikzcd} \]
+The solid part clearly commutes and thus, since $i\in \Eps^\orth$, we get the
+map $\lambda'$, such that the full diagram commutes.
+
+It is clear that $\lambda = \lambda' \circ t$ gives us the map we want, by
+considering the outermost square in the previous diagram.
+
+\item[(d)]
+Let $\alpha : A_0 \to X$, $\beta : A:=\colim_n A_n \to Y$ and $(p : X \to Y)
+\in \Eps$, such that the solid part of the following diagram commutes
+\[ \begin{tikzcd}
+A_0 \ar[r,"\alpha"] \ar[d, "\hat i_0"] 
+& X \ar[d, "p"] \\
+A \ar[r, "\beta"] \ar[ru, dotted, "\lambda"]
+& Y
+\end{tikzcd} \]
+where $\hat i_0 : A_0 \to A$ is the canonical morphism.
+We want to define $\lambda$ so that the full diagram commutes.
+
+By the left lifting property of the sequential maps $i_j : A_j \to A_{j+1}$,
+(for $j= 0,1,...$). Let $\lambda_j = \alpha$, then we will inductively define
+maps $\lambda_j : A_j \to X$ such that the following diagram commutes.
+\[ \begin{tikzcd}
+A_j \ar[r,"\lambda_j"] \ar[d, "i_j"] 
+& X \ar[d, "p"] \\
+A_{j+1} \ar[r, "\beta \circ \hat i_{j+1}"] \ar[ru, dotted, "\lambda_{j+1}"]
+& Y
+\end{tikzcd} \]
+The commutativity of the solid square follows by the inductive hypothesize,
+(and the definition of $\alpha$ and $\beta$ in the case of $j=0$) and the existence
+of the map $\labbda_{j+1}$ follows since $i_j \in \Eps^\orth$. 
+
+It is imminently clear from the inductive construction that $\lambda_{j+1}
+\circ i_j = \lambda_j$, so by the universal property of the commit, 
+there is a unique map $\lambda : A \to X$ such that 
+$\lambda_j = \lambda \circ \hat i_j$.
+
+It follows by the defining property of $\lambda_1$ (and $\lambda$) that 
+\[ \begin{tikzcd}[row sep = 4em]
+A_0 \ar[rr,"\alpha"] \ar[d, "i_0"] &
+& X \ar[d, "p"] \\
+A_1 \ar[r, "\hat i_1"] \ar[rru, "\lambda_1"]
+& A \ar[r, "\beta"] \ar[ru, "\lambda"]
+& Y
+\end{tikzcd} \]
+commutes. So $\lambda$ is the map that we want, since $\hat i_0 = \hat i_1
+\circ i_0$.
+
+
+\end{enumerate}
+
+
+
+\end{exercise}
+
+\end{document}
