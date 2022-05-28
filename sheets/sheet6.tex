@@ -12,9 +12,9 @@
 Given $\alpha: A \to X$, $\beta : C \to Y$ and $(p : X\to Y) \in \Eps$, such
 that the outer square in the following diagram commutes
 \[ \begin{tikzcd}
-A \ar[r,"\alpha"] \ar[d, "j \circ i"] 
+A \ar[r,"\alpha"] \ar[d, "j \circ i"'] 
 & X \ar[d, "p"] \\
-B \ar[r, "\beta"] \ar[ru, dotted, "\lambda"]
+B \ar[r, "\beta"'] \ar[ru, dotted, "\lambda"]
 & Y
 \end{tikzcd} \]
 We want to construct the map $\lambda: C \to X$, such that the hole diagram
@@ -22,16 +22,16 @@ commutes.
 
 Since $i \in \Eps^\orth$ we have the lift $\lambda' : B \to X$, such that 
 \[ \begin{tikzcd}
-A \ar[r,"\alpha"] \ar[d, "i"] 
+A \ar[r,"\alpha"] \ar[d, "i"'] 
 & X \ar[d, "p"] \\
-B \ar[r, "\beta \circ j"] \ar[ru, dotted, "\lambda'"]
+B \ar[r, "\beta \circ j"'] \ar[ru, dotted, "\lambda'"]
 & Y
 \end{tikzcd} \]
 commutes. Since also $j\in \Eps^\orth$ we have the lift $\lambda$, such that 
 \[ \begin{tikzcd}
-A \ar[r,"\lambda'"] \ar[d, "j"] 
+A \ar[r,"\lambda'"] \ar[d, "j"'] 
 & X \ar[d, "p"] \\
-C \ar[r, "\beta"] \ar[ru, dotted, "\lambda"]
+C \ar[r, "\beta"'] \ar[ru, dotted, "\lambda"]
 & Y
 \end{tikzcd} \]
 commutes. It is clear that this lambda makes the original diagram commute.
@@ -40,18 +40,18 @@ commutes. It is clear that this lambda makes the original diagram commute.
 We consider the following diagram.
 \[ \begin{tikzcd}
 A \ar[r, "\alpha"] \ar[rr, bend left, "\beta \circ \alpha"] 
-\ar[d, "i"] 
-& C \ar[r, "\beta"] \ar[d, "j"] 
+\ar[d, "i"'] 
+& C \ar[r, "\beta"] \ar[d, "j"'] 
 & X \ar[d, "p"]
 \\ 
-B \ar[r, "\gamma"] \ar[rr, bend right, "\delta \circ \gamma"] 
+B \ar[r, "\gamma"] \ar[rr, bend right, "\delta \circ \gamma"'] 
 & D \ar[r, "\delta"] 
-\ar[rru, dotted, "\lambda"]
+\ar[ru, dotted, "\lambda"]
 & Y
 \end{tikzcd} \]
 where $p\in \Eps$ and $\alpha, \beta, \gamma$ and $\delta$ are such that
 the solid diagram commutes. 
-We want to define $\labda : D \to X$ such that the
+We want to define $\lambda : D \to X$ such that the
 full diagram commutes.
 
 Since $i \in \Eps^\orth$, we have $\lambda' : B \to X$, with respect to the
@@ -74,9 +74,9 @@ It is clear that this is the map we want.
 Let $p\in \Eps$, $\alpha: C \to X$ and $\beta: D \to Y$, such that the solid
 part of the following diagram commutes.
 \[ \begin{tikzcd}
-C \ar[r,"\alpa"] \ar[d, "j"] 
+C \ar[r,"\alpha"] \ar[d, "j"'] 
 & X \ar[d, "p"] \\
-D \ar[r, "\beta"] \ar[ru, dotted, "\lambda"]
+D \ar[r, "\beta"'] \ar[ru, dotted, "\lambda"]
 & Y
 \end{tikzcd} \]
 We want to define $\lambda$ such that the full diagram commutes.
@@ -88,9 +88,9 @@ C \ar[r, "s"] \ar[rr, bend left, "\id"] \ar[d, "j"]
 & C \ar[r, "\alpha"] \ar[d, "j"]
 & X \ar[d, "p"] 
 \\
-D \ar[r, "t"] \ar[rr, bend right, "\id"] 
-& B \ar[r, "u"] \ar[rru, dotted, "\lambda'"] 
-& D \ar[r, "\beta"]
+D \ar[r, "t"'] \ar[rr, bend right, "\id"'] 
+& B \ar[r, "u"'] \ar[rru, dotted, "\lambda'" near start] 
+& D \ar[r, "\beta"']
 & Y
 \end{tikzcd} \]
 The solid part clearly commutes and thus, since $i\in \Eps^\orth$, we get the
@@ -103,9 +103,9 @@ considering the outermost square in the previous diagram.
 Let $\alpha : A_0 \to X$, $\beta : A:=\colim_n A_n \to Y$ and $(p : X \to Y)
 \in \Eps$, such that the solid part of the following diagram commutes
 \[ \begin{tikzcd}
-A_0 \ar[r,"\alpha"] \ar[d, "\hat i_0"] 
+A_0 \ar[r,"\alpha"] \ar[d, "\hat i_0"'] 
 & X \ar[d, "p"] \\
-A \ar[r, "\beta"] \ar[ru, dotted, "\lambda"]
+A \ar[r, "\beta"'] \ar[ru, dotted, "\lambda"]
 & Y
 \end{tikzcd} \]
 where $\hat i_0 : A_0 \to A$ is the canonical morphism.
@@ -115,14 +115,14 @@ By the left lifting property of the sequential maps $i_j : A_j \to A_{j+1}$,
 (for $j= 0,1,...$). Let $\lambda_j = \alpha$, then we will inductively define
 maps $\lambda_j : A_j \to X$ such that the following diagram commutes.
 \[ \begin{tikzcd}
-A_j \ar[r,"\lambda_j"] \ar[d, "i_j"] 
+A_j \ar[r,"\lambda_j"] \ar[d, "i_j"'] 
 & X \ar[d, "p"] \\
-A_{j+1} \ar[r, "\beta \circ \hat i_{j+1}"] \ar[ru, dotted, "\lambda_{j+1}"]
+A_{j+1} \ar[r, "\beta \circ \hat i_{j+1}"'] \ar[ru, dotted, "\lambda_{j+1}"]
 & Y
 \end{tikzcd} \]
 The commutativity of the solid square follows by the inductive hypothesize,
 (and the definition of $\alpha$ and $\beta$ in the case of $j=0$) and the existence
-of the map $\labbda_{j+1}$ follows since $i_j \in \Eps^\orth$. 
+of the map $\lambda_{j+1}$ follows since $i_j \in \Eps^\orth$. 
 
 It is imminently clear from the inductive construction that $\lambda_{j+1}
 \circ i_j = \lambda_j$, so by the universal property of the commit, 
@@ -131,20 +131,112 @@ $\lambda_j = \lambda \circ \hat i_j$.
 
 It follows by the defining property of $\lambda_1$ (and $\lambda$) that 
 \[ \begin{tikzcd}[row sep = 4em]
-A_0 \ar[rr,"\alpha"] \ar[d, "i_0"] &
+A_0 \ar[rr,"\alpha"] \ar[d, "i_0"'] &
 & X \ar[d, "p"] \\
-A_1 \ar[r, "\hat i_1"] \ar[rru, "\lambda_1"]
-& A \ar[r, "\beta"] \ar[ru, "\lambda"]
+A_1 \ar[r, "\hat i_1"'] \ar[rru, "\lambda_1"]
+& A \ar[r, "\beta"'] \ar[ru, "\lambda"]
 & Y
 \end{tikzcd} \]
 commutes. So $\lambda$ is the map that we want, since $\hat i_0 = \hat i_1
 \circ i_0$.
+\end{enumerate}
+\end{exercise}
+
+
+\begin{exercise}[2]\ 
+\begin{enumerate}
+\item[(a)] 
+\begin{enumerate}
+\item[(C1)] 
+It is immediately clear that isomorphisms are acyclic and that $\emptyset \to X$
+is a cofibration. Furthermore, a $h$-cofibration is defined by the left lifting
+property with respect to the class $\Eps := \{ p_0 : Y^I \to I \}$. So it
+follows by exercise 1 (a), that $h$-cofibration are stable under composition.
+
+\item[(C2)]
+The two out of three property, follows from the fact that weak equivalences are
+characterized by being sent to isomorphism by some functor (that is $\pi_*$),
+since the class of isomorphisms satisfy the two out of three property.
+
+\item[(C3)]
+It follows by exercise 1 (b), it follows that $h$-cofibration are stable under
+cobase change. 
+% TODO: weak equvalences
+
+\item[(C4)]
+For $f: A \to B$, we may form the mapping cylinder $Cf = (A \times [0,1]) \cup_f
+B$ and we have 
+\[ \begin{tikzcd}
+A \ar[r, rightarrowtail, "i_0"] \ar[rr, bend right, "f"']
+& Cf \ar[r, "p", "\sim"'] 
+& B 
+\end{tikzcd} \]
+We showed last year that $i_0$ is a $h-cofibration and it is clear that $p$ is
+a homotopy eqvivalence and thus a weak eqvivalenece.
+\end{enumerate}
+
+\item[(b)] 
+\begin{enumerate}
+\item[(C1)] 
+Again it is clear that isomorphisms are acyclic and $\emptyset \to X$ is a
+cofibration. It is also clear that cofibrations are stable under composition.
+
+\item[(C2)] 
+The two out of three is also clear, by it also follows by part (a), by
+the same argument, that is weak eqvalences are characterized by being mapped to
+weak equvalences geometric realizarton.
+
+\item[(C3)] 
+%% TODO
+
+% The part regarding the weak equivalences follows by geometric realization
+% argument.
+
+\item[(C4)]
+For the factorization, we have agian the mapping cylinder, 
+$Cf = (X\times \Delta^1) \cup_f Y$, for any map $f: X \to Y$. We have 
+
+\[ \begin{tikzcd}
+X \ar[r, rightarrowtail, "i_0"] \ar[rr, bend right, "f"']
+& Cf \ar[r, "p", "\sim"'] 
+& Y 
+\end{tikzcd} \]
+It is quite easy to see that $i_0$ is a monomorphism. Furthermore, the geometric
+realization of $Cf$ is the mapping cylinder of topological spaces, so it is
+clear that $p$ is a weak eqvivalence.
+
+\end{enumerate}
+
+\item[(c)] 
+\begin{enumerate}
+\item[(C1)] 
+Isomorphisms are clearly acyclic again, and monomorphisms are stabile under
+composition.
+
+\item[(C2)] 
+It is also clear that monomorphisms satisfy two out of three.
+
+\item[(C3)] 
+% TODO 
+
+\item[(C4)] 
 
 
 \end{enumerate}
 
+\item[(d)] 
+\item[(e)] 
+\end{enumerate}
+\end{exercise}
 
-
+\begin{exercise}[3]\ 
+\begin{enumerate}
+\item[(a)] 
+\item[(b)] 
+\item[(c)] 
+\item[(d)] 
+\item[(e)] 
+\end{enumerate}
 \end{exercise}
 
 \end{document}
