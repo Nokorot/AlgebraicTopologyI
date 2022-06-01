@@ -7,36 +7,35 @@
 
 \begin{exercise}[1]\ 
 
-\begin{enumerate}
-\item[(a)] 
+(a)
 Given $\alpha: A \to X$, $\beta : C \to Y$ and $(p : X\to Y) \in \Eps$, such
 that the outer square in the following diagram commutes
 \[ \begin{tikzcd}
 A \ar[r,"\alpha"] \ar[d, "j \circ i"'] 
 & X \ar[d, "p"] \\
-B \ar[r, "\beta"'] \ar[ru, dotted, "\lambda"]
+C \ar[r, "\beta"'] \ar[ru, dotted, "\lambda"]
 & Y
-\end{tikzcd} \]
-We want to construct the map $\lambda: C \to X$, such that the hole diagram
-commutes.
+\end{tikzcd}
+\]
+we want to construct a lift $\lambda:C\to X$.
 
-Since $i \in \Eps^\orth$ we have the lift $\lambda' : B \to X$, such that 
+Since $i \in \Eps^\orth$ we have a lift $\lambda':B\to X$ such that 
 \[ \begin{tikzcd}
 A \ar[r,"\alpha"] \ar[d, "i"'] 
 & X \ar[d, "p"] \\
 B \ar[r, "\beta \circ j"'] \ar[ru, dotted, "\lambda'"]
 & Y
 \end{tikzcd} \]
-commutes. Since also $j\in \Eps^\orth$ we have the lift $\lambda$, such that 
+commutes. Since also $j\in \Eps^\orth$ we have a lift $\lambda$, such that 
 \[ \begin{tikzcd}
-A \ar[r,"\lambda'"] \ar[d, "j"'] 
+B \ar[r,"\lambda'"] \ar[d, "j"'] 
 & X \ar[d, "p"] \\
 C \ar[r, "\beta"'] \ar[ru, dotted, "\lambda"]
 & Y
 \end{tikzcd} \]
 commutes. It is clear that this lambda makes the original diagram commute.
 
-\item[(b)]
+(b)
 We consider the following diagram.
 \[ \begin{tikzcd}
 A \ar[r, "\alpha"] \ar[rr, bend left, "\beta \circ \alpha"] 
@@ -65,21 +64,24 @@ B \ar[r, "\gamma"] \ar[rrd, bend right, "\lambda'"]
 & \\ 
 & & X
 \end{tikzcd} \]
-The solid part commutes by the previous diagram and we get a unique map 
-$\lambda : D \to X$, by the universal property of the push out making the full
-diagram commute.
+The solid part commutes by the previous diagram and
+by the universal property of the pushout we get a unique map
+$\lambda:D\to X$ making the full diagram commute.
 
 It is clear that this is the map we want.
-\item[(c)]
-Let $p\in \Eps$, $\alpha: C \to X$ and $\beta: D \to Y$, such that the solid
-part of the following diagram commutes.
-\[ \begin{tikzcd}
+
+(c)
+Let $p\in \Eps$, $\alpha: C \to X$ and $\beta: D \to Y$ such that the solid
+part of the following diagram commutes
+\[
+\begin{tikzcd}
 C \ar[r,"\alpha"] \ar[d, "j"'] 
 & X \ar[d, "p"] \\
 D \ar[r, "\beta"'] \ar[ru, dotted, "\lambda"]
 & Y
-\end{tikzcd} \]
-We want to define $\lambda$ such that the full diagram commutes.
+\end{tikzcd}
+\]
+we want to define $\lambda$ such that the full diagram commutes.
 
 We consider the following diagram
 \[ \begin{tikzcd}
@@ -99,8 +101,8 @@ map $\lambda'$, such that the full diagram commutes.
 It is clear that $\lambda = \lambda' \circ t$ gives us the map we want, by
 considering the outermost square in the previous diagram.
 
-\item[(d)]
-Let $\alpha : A_0 \to X$, $\beta : A:=\colim_n A_n \to Y$ and $(p : X \to Y)
+(d)
+Let $\alpha : A_0 \to X$, $\beta : A:=\colimit_n A_n \to Y$ and $(p : X \to Y)
 \in \Eps$, such that the solid part of the following diagram commutes
 \[ \begin{tikzcd}
 A_0 \ar[r,"\alpha"] \ar[d, "\hat i_0"'] 
@@ -113,21 +115,20 @@ We want to define $\lambda$ so that the full diagram commutes.
 
 By the left lifting property of the sequential maps $i_j : A_j \to A_{j+1}$,
 (for $j= 0,1,...$). Let $\lambda_j = \alpha$, then we will inductively define
-maps $\lambda_j : A_j \to X$ such that the following diagram commutes.
+maps $\lambda_j : A_j \to X$ such that the following diagram commutes
 \[ \begin{tikzcd}
 A_j \ar[r,"\lambda_j"] \ar[d, "i_j"'] 
 & X \ar[d, "p"] \\
 A_{j+1} \ar[r, "\beta \circ \hat i_{j+1}"'] \ar[ru, dotted, "\lambda_{j+1}"]
 & Y
 \end{tikzcd} \]
-The commutativity of the solid square follows by the inductive hypothesize,
-(and the definition of $\alpha$ and $\beta$ in the case of $j=0$) and the existence
-of the map $\lambda_{j+1}$ follows since $i_j \in \Eps^\orth$. 
+The commutativity of the solid square follows by the inductive hypothesis,
+(and the definition of $\alpha$ and $\beta$ in the case of $j=0$) and the existence
+of the maps $\lambda_{j+1}$ follows by $i_j$ being in $\Eps^\orth$. 
 
-It is imminently clear from the inductive construction that $\lambda_{j+1}
-\circ i_j = \lambda_j$, so by the universal property of the commit, 
-there is a unique map $\lambda : A \to X$ such that 
-$\lambda_j = \lambda \circ \hat i_j$.
+It is immediately clear from the inductive construction that $\lambda_{j+1}
+\circ i_j=\lambda_j$, so by the universal property of the colimit there is a unique map $\lambda:A\to X$ such that
+\[\lambda_j=\lambda\circ\hat i_j.\]
 
 It follows by the defining property of $\lambda_1$ (and $\lambda$) that 
 \[ \begin{tikzcd}[row sep = 4em]
@@ -139,19 +140,20 @@ A_1 \ar[r, "\hat i_1"'] \ar[rru, "\lambda_1"]
 \end{tikzcd} \]
 commutes. So $\lambda$ is the map that we want, since $\hat i_0 = \hat i_1
 \circ i_0$.
-\end{enumerate}
 \end{exercise}
 
 
 \begin{exercise}[2]\ 
-\begin{enumerate}
-\item[(a)] 
+
+We refer to the properties as given in the lectures (in particular, ``the pushout'' we sometimes refer to in proving property C3 is the one in the notes by Qi).
+
+(a)
 \begin{enumerate}
 \item[(C1)] 
 It is immediately clear that isomorphisms are acyclic and that $\emptyset \to X$
 is a cofibration. Furthermore, a $h$-cofibration is defined by the left lifting
-property with respect to the class $\Eps := \{ p_0 : Y^I \to I \}$. So it
-follows by exercise 1 (a), that $h$-cofibration are stable under composition.
+property with respect to the class $\Eps := \{ p_0 : Y^I \to Y \}$. So it
+follows by exercise 1.a, that $h$-cofibration are stable under composition.
 
 \item[(C2)]
 The two out of three property, follows from the fact that weak equivalences are
@@ -159,83 +161,82 @@ characterized by being sent to isomorphism by some functor (that is $\pi_*$),
 since the class of isomorphisms satisfy the two out of three property.
 
 \item[(C3)]
-It follows by exercise 1 (b), it follows that $h$-cofibration are stable under
-cobase change. 
-% TODO: weak equvalences
+It follows by exercise 1.b that $h$-cofibrations are stable under cobase change. I don't see how to prove the statement about the weak equivalences (one cannot reproduce the proof we used for spectra as we do not have a long exact sequence associated to a cofibration for spaces... I thought about this for a while but couldn't get it sorted out).
 
 \item[(C4)]
 For $f: A \to B$, we may form the mapping cylinder $Cf = (A \times [0,1]) \cup_f
 B$ and we have 
 \[ \begin{tikzcd}
-A \ar[r, rightarrowtail, "i_0"] \ar[rr, bend right, "f"']
+A \ar[r, tail, "i_0"] \ar[rr, bend right, "f"']
 & Cf \ar[r, "p", "\sim"'] 
 & B 
 \end{tikzcd} \]
-We showed last year that $i_0$ is a $h-cofibration and it is clear that $p$ is
-a homotopy eqvivalence and thus a weak eqvivalenece.
+We know from previous courses that $i_0$ is a $h$-cofibration and that $p$ is
+a homotopy equivalence and thus a weak equivalence.
 \end{enumerate}
 
-\item[(b)] 
+(b)
 \begin{enumerate}
 \item[(C1)] 
-Again it is clear that isomorphisms are acyclic and $\emptyset \to X$ is a
-cofibration. It is also clear that cofibrations are stable under composition.
+Again it is clear that isomorphisms are acyclic cofibrations and that $\emptyset \to X$ is a
+cofibration. Then we observe that in $\operatorname{Set}$ monomorphisms have the left lifting property against maps from sets of two elements to a singleton, hence monomorphisms of simplicial sets have the left lifting property against morphisms from the constant simplicial set on two vertices to the constant simplicial set on one vertex. This shows that monomorphisms are closed under composition by the first exercise (although it was already obvious).
 
 \item[(C2)] 
-The two out of three is also clear, by it also follows by part (a), by
-the same argument, that is weak eqvalences are characterized by being mapped to
-weak equvalences geometric realizarton.
+The two out of three is also clear, by
+the same argument as in (a), i.e. weak equivalences are characterized by being sent to
+weak equivalences of spaces by geometric realization.
 
-\item[(C3)] 
-%% TODO
+\item[(C3)]
+Again we appeal to the first exercise.
 
-% The part regarding the weak equivalences follows by geometric realization
-% argument.
+(Note though that the fact pushouts preserve monomorphisms follows by the same property in $\operatorname{Set}$, as pushouts are computed dimensionwise. The reason why this property holds in $\operatorname{Set}$ is sort of obvious once one unravels the definition: (reinterpreting the pushout in $\operatorname{Set}$) there can be no non trivial relation between (the image in $C\cup_A B$) of points $c,c'\in C$ as these would be a zigzag of relations
+\[c=f(a_0)\sim i(a_0)=i(a_1)\sim f(a_1)=f(a_2)\sim\cdots\sim f(a_n)=c'\]
+but by injectivity of $i$ these can only be trivial.)
+
+Concerning the weak equivalence part of the property, assuming (a) the property is satisfied, because the realization of the map $i:A\into B$ is a h-cofibration (it is the inclusion of a CW-subcomplex).
 
 \item[(C4)]
-For the factorization, we have agian the mapping cylinder, 
-$Cf = (X\times \Delta^1) \cup_f Y$, for any map $f: X \to Y$. We have 
-
+For the factorization, we have again the mapping cylinder, 
+$Cf = (X\times \Delta^1) \cup_f Y$, for any map $f: X \to Y$. We have natural maps
 \[ \begin{tikzcd}
-X \ar[r, rightarrowtail, "i_0"] \ar[rr, bend right, "f"']
+X \ar[r, tail, "i_0"] \ar[rr, bend right, "f"']
 & Cf \ar[r, "p", "\sim"'] 
 & Y 
 \end{tikzcd} \]
-It is quite easy to see that $i_0$ is a monomorphism. Furthermore, the geometric
-realization of $Cf$ is the mapping cylinder of topological spaces, so it is
-clear that $p$ is a weak eqvivalence.
-
+Clearly $i_0$ is dimensionwise injective.
+Furthermore, the geometric realization of $Cf$ is the mapping cylinder of topological spaces,
+so it is clear that $p$ is a weak equivalence.
 \end{enumerate}
 
-\item[(c)] 
+(c) We assume some basic facts such as that compositions of chain homotopic maps are chain homotopic.
+
 \begin{enumerate}
-\item[(C1)] 
-Isomorphisms are clearly acyclic again, and monomorphisms are stabile under
-composition.
+\item[(C1)]
+Clear. I do not have a class of morphism as asked.
 
-\item[(C2)] 
-It is also clear that monomorphisms satisfy two out of three.
-
-\item[(C3)] 
-% TODO 
-
-\item[(C4)] 
-
+\item[(C2)]
+Clear.
 
 \end{enumerate}
 
-\item[(d)] 
-\item[(e)] 
-\end{enumerate}
+I have to stop being already overtime (of course there are many easy things left to prove and I think I could prove some of the non-trivial ones, but time is over).
+
 \end{exercise}
 
 \begin{exercise}[3]\ 
+
+If I am not mistaken, (c), (d) and (e) are statements dual to (c), (d) and (e) of the previous exercise, while (a) needs to be proven again (as the notions of h-cofibration and Serre fibrations are not dual to each other).
+
 \begin{enumerate}
-\item[(a)] 
-\item[(b)] 
-\item[(c)] 
-\item[(d)] 
-\item[(e)] 
+
+    \item[(C1)$^{\operatorname{op}}$] It's clear that isomorphisms are acyclic fibrations and that the terminal map is a fibration. Moreover, Serre fibrations have the right lifting property with respect to $\Eps := \{ i_0 : X \to X\times I\mid X\text{ a CW-complex} \}$.
+    
+    \item[(C2)$^{\operatorname{op}}$] As before.
+    
+    \item[(C3)$^{\operatorname{op}}$] We just have to prove that the pullback of an acyclic fibration is an acyclic fibration, which I do not have time to do.
+    
+    \item[(C4)$^{\operatorname{op}}$] We proved this last semester.
+
 \end{enumerate}
 \end{exercise}
 
