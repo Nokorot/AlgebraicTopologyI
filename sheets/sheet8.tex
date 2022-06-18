@@ -1,0 +1,37 @@
+\sheet 8
+
+\def\op{\text{op}}
+
+\begin{document}
+\mmaketitle
+
+\begin{exercise}[1]\ 
+
+\end{exercise}
+
+
+\begin{exercise}[2]\ 
+Suppose $C$ is a preadditive category. Then 
+for any $f,g : A \to B$, define
+\[ f^\op +_\op g^\op := (f + g)^\op. \]
+Given $f,g : A \to B$ and $h,k : B \to C$, we have
+\begin{align*}
+h^\op \circ_\op (f^\op +_\op g^\op)  
+&= ((f+g)\circ h)^\op \\
+&= ((f\circ h) + (g\circ h))^\op \\
+&= (h^\op \circ_\op f^\op) +_\op (h^\op \circ_\op g^\op)
+\end{align*}
+And similarly 
+\[ (h^\op + k^\op) \circ_\op f^\op = (h^\op \circ_\op f^\op) +_\op (k^\op \cic_\op
+f^\op) \]
+%
+Hence $C^\op$ is preadditive. 
+Furthermore, if $C$ is additive, ie. has finite coproducts. 
+Since the coproduct is also a product, it also defines a coproduct in the
+opposite category, and thus $C^\op$ is additive.
+\end{exercise}
+
+
+
+
+\end{document}
