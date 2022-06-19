@@ -32,6 +32,102 @@ opposite category, and thus $C^\op$ is additive.
 \end{exercise}
 
 
+\begin{exercise}[3]\ 
+
+\begin{enumerate}
+\item[(T0)] 
+If $(-f',-g',-h')$ is isomorphic to $(-f,-g,-h)$ (anti-distinguished) by the morphism $(a,b,c)$, then 
+$(A,b,c)$ also defines an isomorphism from $(f', g',h')$ to $(f,g,h)$. So
+$(f',g',h')$ is distinguished and thus $(-f', -g',-h')$ is anti-distinguished.
+
+\item[(T1)]
+For any morphism $-f$, there exists a distinguished $(f,g,h)$. So $(-f,-g,-h)$
+is anti-distinguished.
+
+\item[(T2)]
+$(0,-\id_X,0)$ is isomorphic to $(0,\id_X,0)$ by $(0,\id_X, -\id_X)$. 
+So $(0,-\id_X,0)$ is distinguished and thus $(0,\id_X,0)$ is
+anti-distinguished.
+
+\item[(T3)]
+If $(f,g,h)$ is distinguished, then $(g,h,-\Sigma f)$ is distinguished. So 
+$(-g,-h,\Sigma f)$ is anti-distinguished.
+
+\item[(T4)]
+This follows immediately from the T4 property of $\T$, and the fact that 
+a square commutes iff and only if the square commutes after changing the sign of
+the horizontal (or vertical) maps. ie.
+\[ 
+(-b) \circ f = f' \circ (-a)
+\qq{\Leftrightarrow}
+b \circ (-f) = (-f') \circ a
+\qq{\Leftrightarrow}
+b \circ f = f' \circ a \] 
+
+\item[(T5)]
+Let $f:A\to B$ and $f':B \to D$ be morphisms, then by (T5) (with $-f$ and $-f'$) for $\T$, we we can find the following diagram
+%
+\[ \begin{tikzcd}
+A \ar[r, "-f"] \ar[d, equal] &
+B \ar[r, "-g"] \ar[d, "-f'"] &
+C \ar[r, "-h"] \ar[d, "x"] &
+\Sigma A      \ar[d, equal]
+\\
+A \ar[r, "f'f"]              &
+D \ar[r, "-g'"]  \ar[d, "-g''"] &
+E \ar[r, "-h''"] \ar[d, "y"]  &
+\Sigma A        \ar[d, "-\Sigma f"]
+\\
+&
+F \ar[r, equal] \ar[d, "-h'"] &
+F \ar[r, "-h'"] \ar[d, "(\Sigma g)\circ h'"]  &
+\Sigma B    
+\\
+&
+\Sigma B \ar[r, "-\Sigma g"] &
+\Sigma C &
+\end{tikzcd} \]
+such that $(-f,-g,-h), (f'f,-g',-h''), (-f',-g'',-h')$ and $(x,y,(\Sigma
+g)\circ h')$ are distinguished. 
+
+By changing some of the signs an even number of signs in each square, we
+preserve the commutativity. Doing so, we get the following commutative diagram
+
+\[ \begin{tikzcd}
+A \ar[r, "f"] \ar[d, equal] &
+B \ar[r, "g"] \ar[d, "f'"] &
+C \ar[r, "h"] \ar[d, "-x"] &
+\Sigma A      \ar[d, equal]
+\\
+A \ar[r, "f'f"]              &
+D \ar[r, "g'"]  \ar[d, "g''"] &
+E \ar[r, "-h''"] \ar[d, "y"]  &
+\Sigma A        \ar[d, "\Sigma f"]
+\\
+&
+F \ar[r, equal] \ar[d, "h'"] &
+F \ar[r, "h'"] \ar[d, "(\Sigma g)\circ h'"]  &
+\Sigma B
+\\
+&
+\Sigma B \ar[r, "\Sigma g"] &
+\Sigma C &
+\end{tikzcd} \]
+
+Since $(-f,-g,-h)$ and $(-f',-g'',-h')$ were distinguished, $(f,g,h)$ and
+$(f',g'',h')$ are anti-distinguished. 
+
+Furthermore, also $(-f'f, -g', h'')$ is isomorphic to $(f'f,-g', -h'')$
+(which is distinguished) by $(-\id, \id, \id)$, so also $(f'f, g', -h'')$ is anti-distinguished.
+Similarly $(x,-y,-(\Sigma g)\circ h')$ is isomorphic to $(x,y,(\Sigma g)\circ
+h')$ by $(\id,\id,-\id)$, so $(-x,y,((\Sigma g)\circ h'))$ is
+anti-distinguished.
+
+Which shows $(T5)$ for the class of anti-distinguished triangles.
+\end{enumerate}
+
+\end{exercise}
+
 
 
 \end{document}
