@@ -7,10 +7,18 @@
 
 \begin{exercise}[1]\ 
 
+The category of spectra has a fibration structure by considering the stable equivalences as weak equivalences and the levelwise Serre fibrations as the fibrations. The verification of the axioms follows immediately from known properties of Serre fibrations, except for the second part of axiom (F3) which we saw in the lecture (proposition 3.16 in Qi's notes, with the due modifications).
+
+At this point, we know we have a calculus of right fractions, which gives us the claim.
+
+Ok, maybe this is cheating, but I cannot find a better way. I tried to follow the hint, i.e. the calculus of left fractions gives us an acyclic cofibration $\tau:N\xto{\sim} A$ and a morphism $f:M\to A$ such that $\phi=\gamma(\tau)^{-1}\circ\gamma(f)$ and we can take the homotopy pullback of the diagram $M\to A\xleftarrow{\sim}N$ and play with it a bit. For some reason everything I tried on this front was missing some step...
 \end{exercise}
 
 
 \begin{exercise}[2]\ 
+
+Disclaimer: we solved the exercise for the usual definitions of pre-additive and additive, which I guess we read on the nLab, forgetting that Schwede gave different definitions. Now, additive categories turn out to be the same using the two definitions, while Schwede's pre-additive categories are not pre-additive in the usual sense... I don't think it is worth it to rewrite the exercise as Schwede's axioms are clearly self dual, are they not?
+
 Suppose $C$ is a preadditive category. Then 
 for any $f,g : A \to B$, define
 \[ f^\op +_\op g^\op := (f + g)^\op. \]
@@ -25,7 +33,7 @@ And similarly
 \[ (h^\op + k^\op) \circ_\op f^\op = (h^\op \circ_\op f^\op) +_\op (k^\op \circ_\op
 f^\op) \]
 
-Hence $C^\op$ is preadditive. 
+Hence, given that the notion of zero object is clearly self dual, $C^\op$ is preadditive. 
 Furthermore, if $C$ is additive, i. e. has finite coproducts. 
 Since the coproduct is also a product, it also defines a coproduct in the
 opposite category, and thus $C^\op$ is additive.
@@ -125,9 +133,6 @@ anti-distinguished.
 
 Which shows $(T5)$ for the class of anti-distinguished triangles.
 \end{enumerate}
-
 \end{exercise}
-
-
 
 \end{document}
